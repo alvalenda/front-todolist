@@ -9,13 +9,11 @@ export const TodoForm = ({ filter }) => {
 
   return (
     <Card>
-      <div className='form-container'>
-        <form onSubmit={handleSubmit} action='/todos'>
-          <input name='todoInput' type='text' placeholder='add a todo' />
-          <button type='submit'>ADD</button>
-          {filter && <TodoFilter />}
-        </form>
-      </div>
+      <form onSubmit={handleSubmit}>
+        <input name='todoInput' type='text' placeholder='add a todo' />
+        <button type='submit'>ADD</button>
+        {filter && <TodoFilter />}
+      </form>
     </Card>
   )
 }
