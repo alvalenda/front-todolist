@@ -1,0 +1,36 @@
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+}
+
+form input[type='text'] {
+  min-height: 1.8rem;
+  width: 90%;
+  border-radius: 12px;
+  text-indent: 1rem;
+}
+
+.todo-filter-container {
+  display: flex;
+  justify-content: space-between;
+  align-content: space-between;
+  width: 30%;
+
+  color: aliceblue;
+}
+.todo-filter-container label {
+  margin: auto 0.5rem auto 0;
+}
+
+.todo-filter-container #todoFilter {
+  border-radius: 24px;
+  height: 1.8rem;
+  text-align: center;
+}
+
+::selection {
+  background: brown;
+  color: brown;
+}
