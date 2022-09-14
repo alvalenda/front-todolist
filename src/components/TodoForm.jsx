@@ -1,5 +1,6 @@
 import { Card } from './shared/Card'
 import { TodoFilter } from './TodoFilter'
+import './TodoForm.css'
 
 export const TodoForm = ({ filter }) => {
   const handleSubmit = (e) => {
