@@ -1,11 +1,7 @@
 import PropTypes from 'prop-types'
 
 export const Card = ({ children, reverse }) => {
-  return (
-    <div className={`card-container ${reverse ? 'reverse' : ''}`}>
-      {children}
-    </div>
-  )
+  return <div className={`card ${reverse ? 'reverse' : ''}`}>{children}</div>
 }
 
 Card.defaultProps = {
