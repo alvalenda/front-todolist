@@ -1,11 +1,20 @@
 import PropTypes from 'prop-types'
 
-export const Card = ({ children, reverse }) => {
-  return <div className={`card ${reverse ? 'reverse' : ''}`}>{children}</div>
+export const Card = ({ children, reverse, completed }) => {
+  return (
+    <div
+      className={`card ${completed ? 'completed' : ''} ${
+        reverse ? 'reverse' : ''
+      }`}
+    >
+      {children}
+    </div>
+  )
 }
 
 Card.defaultProps = {
   reverse: false,
+  completed: false,
 }
 
 Card.propTypes = {
