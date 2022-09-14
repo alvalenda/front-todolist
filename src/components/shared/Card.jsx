@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import './Card.css'
 
 export const Card = ({ children, reverse, completed }) => {
   return (
