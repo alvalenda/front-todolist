@@ -5,12 +5,10 @@ import { Card } from './shared/Card'
 export const TodoItem = ({ item, handleDelete, handleEdit }) => {
   const [todoCheck, setTodoCheck] = useState(item.completed)
 
-  useEffect(() => {
-    console.log(todoCheck)
-  }, [])
+  useEffect(() => {}, [])
 
-  const handleChange = (e) => {
-    console.log(e.target.checked)
+  const handleChange = () => {
+    console.log(!todoCheck)
     setTodoCheck((prevState) => (prevState ? false : true))
   }
 
