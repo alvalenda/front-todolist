@@ -12,12 +12,14 @@ export const TodoList = () => {
 
   return (
     <div className='todo-list'>
-      <TodoItem
-        key={todoData[0].id}
-        item={todoData[0]}
-        handleDelete={deleteTodo}
-        handleEdit={editTodo}
-      />
+      {todoData.map((item, index) => (
+        <TodoItem
+          key={index + 1}
+          item={item}
+          handleDelete={deleteTodo}
+          handleEdit={editTodo}
+        />
+      ))}
     </div>
   )
 }
