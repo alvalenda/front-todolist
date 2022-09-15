@@ -11,9 +11,9 @@ export const TodoList = ({ todoList, handleCheck }) => {
 
   return (
     <div className='todo-list'>
-      {todoList.map((item, index) => (
+      {todoList.map((item) => (
         <TodoItem
-          key={index + 1}
+          key={item.id}
           item={item}
           handleDelete={deleteTodo}
           handleEdit={editTodo}
