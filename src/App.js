@@ -32,7 +32,11 @@ export function App() {
       <Header />
       <TodoForm filter={true} />
       <TodoMetadata todoList={todoList} />
-      <TodoList todoList={todoList} handleCheck={setTodoCompleted} />
+      <TodoList
+        todoList={todoList}
+        setTodoList={setTodoList}
+        handleCheck={setTodoCompleted}
+      />
     </div>
   )
 }

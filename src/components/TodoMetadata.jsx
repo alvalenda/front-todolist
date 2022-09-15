@@ -9,7 +9,7 @@ export const TodoMetadata = ({ todoList }) => {
           if (item.completed) return acc
           else return acc + 1
         }, 0)}{' '}
-        remaining
+        incompleted
       </span>
     </div>
   )
