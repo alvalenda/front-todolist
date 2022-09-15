@@ -9,7 +9,14 @@ import { useState, useEffect } from 'react'
 function App() {
   const [todoList, setTodoList] = useState(() => [])
 
-  const handleCheck = (id) => {}
+  const setTodoCompleted = (id, state) => {
+    const newList = todoList.map((item) => {
+      if (item.id === id) item.completed = state
+      return item
+    })
+
+    setTodoList(() => newList)
+  }
 
   useEffect(() => {
     setTodoList(() => todoData)
@@ -21,7 +28,7 @@ function App() {
       <Header />
       <TodoForm filter={true} />
       <TodoMetadata todoList={todoList} />
-      <TodoList todoList={todoList} handleCheck={handleCheck} />
+      <TodoList todoList={todoList} handleCheck={setTodoCompleted} />
     </div>
   )
 }

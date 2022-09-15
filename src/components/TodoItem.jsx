@@ -1,16 +1,14 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Card } from './shared/Card'
 
 export const TodoItem = ({ item, handleDelete, handleEdit, handleCheck }) => {
   const [todoCheck, setTodoCheck] = useState(item.completed)
 
-  useEffect(() => {}, [])
-
   const handleChange = () => {
     console.log(!todoCheck)
     setTodoCheck((prevState) => !prevState)
-    handleCheck(item.id)
+    handleCheck(item.id, !todoCheck)
   }
 
   return (
