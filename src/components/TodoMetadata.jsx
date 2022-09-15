@@ -1,5 +1,4 @@
 import './TodoMetadata.css'
-import { useEffect } from 'react'
 
 export const TodoMetadata = ({ todoList }) => {
   return (
