@@ -16,8 +16,11 @@ export const TodoList = ({ todoList, handleCheck }) => {
       y: 0,
       opacity: 1,
       transition: {
-        delay: 0.2,
-        stagger: 5,
+        y: { duration: 0.8, easing: 'easeOutQuart' },
+        opacity: { duration: 1.5, easing: 'easeOutQuart' },
+        delay: 0.1,
+        stagger: 0.3,
+        default: { ease: 'linear' },
       },
     },
   }
