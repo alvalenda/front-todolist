@@ -16,10 +16,22 @@ export const TodoList = ({ todoList, handleCheck }) => {
       y: 0,
       opacity: 1,
       transition: {
+        type: 'spring',
+        stiffness: 100,
         y: { duration: 0.8, easing: 'easeOutQuart' },
         opacity: { duration: 1.5, easing: 'easeOutQuart' },
-        delay: 0.1,
-        stagger: 0.3,
+        default: { ease: 'linear' },
+      },
+    },
+    completed: {
+      y: 0,
+      opacity: 0.4,
+      transition: {
+        type: 'spring',
+        stiffness: 100,
+        y: { duration: 0.8, easing: 'ease' },
+        opacity: { duration: 1.5, easing: 'easeOutQuart' },
+        delay: 1,
         default: { ease: 'linear' },
       },
     },
@@ -34,7 +46,7 @@ export const TodoList = ({ todoList, handleCheck }) => {
             className='Motion'
             variants={motionItem}
             initial='hidden'
-            animate='visible'
+            animate={item.completed ? 'completed' : 'visible'}
           >
             <TodoItem
               key={item.id}
