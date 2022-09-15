@@ -6,7 +6,7 @@ import { todoData } from './mocks/data'
 import { TodoMetadata } from './components/TodoMetadata'
 import { useState, useEffect } from 'react'
 
-function App() {
+export function App() {
   const [todoList, setTodoList] = useState(() => [])
 
   const setTodoCompleted = (id, state) => {
@@ -14,11 +14,17 @@ function App() {
       if (item.id === id) item.completed = state
       return item
     })
+
+    newList.sort((a, b) => a.completed - b.completed || a.id - b.id)
+    console.log(newList)
+
     setTodoList(() => newList)
   }
 
   useEffect(() => {
-    setTodoList(() => todoData)
+    setTodoList(() =>
+      todoData.sort((a, b) => a.completed - b.completed || a.id - b.id)
+    )
   }, [])
 
   return (
@@ -30,5 +36,3 @@ function App() {
     </div>
   )
 }
-
-export default App
