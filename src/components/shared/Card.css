@@ -73,14 +73,12 @@
 }
 
 .card.completed {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.7);
   text-decoration: line-through 3px rgba(70, 1, 1, 0.8);
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
-  opacity: 0.6;
 }
 
 .card.completed .text-display {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 1);
 }
 
 .card.completed button {
