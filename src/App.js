@@ -14,14 +14,12 @@ function App() {
       if (item.id === id) item.completed = state
       return item
     })
-
     setTodoList(() => newList)
   }
 
   useEffect(() => {
     setTodoList(() => todoData)
-    console.log(todoList)
-  }, [todoList])
+  }, [])
 
   return (
     <div className='App'>
