@@ -29,8 +29,8 @@ form button {
   transition: all 0.2s ease-in-out;
 }
 
-button:hover {
-  box-shadow: 0 0 1px 1px brown;
+form button:hover {
+  box-shadow: 0 0 0 1px #bd2a2e;
 }
 
 .todo-filter-container {
@@ -67,13 +67,13 @@ button:hover {
 
 select option:checked,
 select option:hover {
-  box-shadow: 0 0 10px 100px brown inset !important;
-  background-color: brown !important;
+  box-shadow: 0 0 10px 100px #bd2a2e inset !important;
+  background-color: #bd2a2e !important;
 }
 
 ::selection {
-  background: brown;
-  color: brown;
+  background: #bd2a2e;
+  color: #bd2a2e;
 }
 
 form input:focus {
