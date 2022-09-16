@@ -1,4 +1,5 @@
 import { TodoItem } from './TodoItem'
+import { motionItem, motionExit } from '../utils/utils'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export const TodoList = ({ todoList, setTodoList, handleCheck }) => {
@@ -11,33 +12,6 @@ export const TodoList = ({ todoList, setTodoList, handleCheck }) => {
     console.log(todo)
   }
 
-  const motionItem = {
-    hidden: { y: 90, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: 'spring',
-        stiffness: 100,
-        y: { duration: 0.8, easing: 'easeOutQuart' },
-        opacity: { duration: 1.5, easing: 'easeOutQuart' },
-        default: { ease: 'linear' },
-      },
-    },
-    completed: {
-      y: 0,
-      opacity: 0.4,
-      transition: {
-        type: 'spring',
-        stiffness: 100,
-        y: { duration: 0.8, easing: 'ease' },
-        opacity: { duration: 1.5, easing: 'easeOutQuart' },
-        delay: 1,
-        default: { ease: 'linear' },
-      },
-    },
-  }
-
   return (
     <div className='todo-list'>
       <AnimatePresence>
@@ -48,6 +22,7 @@ export const TodoList = ({ todoList, setTodoList, handleCheck }) => {
             variants={motionItem}
             initial='hidden'
             animate={item.completed ? 'completed' : 'visible'}
+            exit={motionExit}
           >
             <TodoItem
               key={item.id}
