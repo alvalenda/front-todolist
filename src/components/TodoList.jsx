@@ -17,7 +17,7 @@ export const TodoList = ({ todoList, setTodoList, handleCheck }) => {
       <AnimatePresence>
         {todoList.map((item) => (
           <motion.div
-            key={!item.completed ? item.id : `${item.id} + completed`}
+            key={!item.completed ? item.id : `${item.id}--completed`}
             className='Motion'
             variants={motionItem}
             initial='hidden'
