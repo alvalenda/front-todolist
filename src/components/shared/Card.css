@@ -10,7 +10,7 @@
   margin: 10px auto;
   border-radius: 18px;
   background-color: rgba(165, 42, 42, 0.9);
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.6);
   transition: all 1s ease-in-out;
 }
 
