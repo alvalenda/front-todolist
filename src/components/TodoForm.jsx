@@ -12,6 +12,7 @@ export const TodoForm = ({ filter, todoList, setTodoList }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    if (text.trim().length < 8) return
     const newTodo = {
       id: findFreeId(todoList),
       todo: text,
@@ -19,16 +20,16 @@ export const TodoForm = ({ filter, todoList, setTodoList }) => {
       created_at: new Date().toLocaleString(),
       completed_at: null,
     }
+    const newList = [...todoList, newTodo]
 
-    const newList = [...todoList]
-    newList.push(newTodo)
     sortedTodoList(newList)
     setTodoList(() => newList)
+    setBtnDisabled(() => true)
+    setText(() => '')
   }
 
   const handleTextChange = (e) => {
     const newText = e.target.value
-    console.log(e.target.value)
     setText(() => newText)
 
     if (newText === '') {
@@ -41,8 +42,8 @@ export const TodoForm = ({ filter, todoList, setTodoList }) => {
       setMessage(() => 'Text must be at least 8 characters long')
       return
     }
-    setBtnDisabled(() => false)
     setMessage(() => '')
+    setBtnDisabled(() => false)
   }
 
   return (
@@ -53,6 +54,7 @@ export const TodoForm = ({ filter, todoList, setTodoList }) => {
           type='text'
           placeholder='add a todo'
           onChange={handleTextChange}
+          value={text}
         />
         <Button type='submit' version={'form'} isDisabled={btnDisabled}>
           ADD
