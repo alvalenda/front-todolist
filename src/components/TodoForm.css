@@ -23,16 +23,6 @@ form input[type='text'] {
   font-weight: 400;
 }
 
-form button {
-  position: absolute;
-  left: calc(100% - 14rem);
-  transition: all 0.2s ease-in-out;
-}
-
-form button:hover {
-  box-shadow: 0 0 0 1px #bd2a2e;
-}
-
 .todo-filter-container {
   position: absolute;
   height: 100%;

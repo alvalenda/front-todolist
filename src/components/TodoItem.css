@@ -1,1 +1,17 @@
+.card button {
+  background-color: transparent;
+}
 
+.card button.edit {
+  position: absolute;
+  right: 3.5em;
+}
+
+.card button.close {
+  position: absolute;
+  right: 0.5em;
+}
+
+.card.completed button {
+  color: rgba(255, 255, 255, 0.8);
+}

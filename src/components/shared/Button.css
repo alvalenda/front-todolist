@@ -1,4 +1,13 @@
-.btn {
+button {
+  width: 3em;
+  height: 2.5em;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn.btn-form {
   transition: all 0.6s ease;
 }
 
@@ -7,13 +16,27 @@ form .btn-form {
   color: white;
 }
 
-form .btn-form:hover {
+form .btn.btn-form {
+  background-color: rgba(152, 41, 41, 0.95);
+  position: absolute;
+  width: 4.8em;
+  height: 2.4em;
+  left: calc(100% - 12.8rem);
+}
+
+form .btn.btn-form:hover {
+  scale: 1.05;
   box-shadow: none;
 }
 
-button:disabled {
-  color: black;
-  background-color: rgb(178, 190, 191);
-  filter: saturate(0.4);
+form .btn-form:disabled {
+  color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(129, 129, 129, 0.5);
+  filter: saturate(0.1);
   cursor: default;
+}
+
+form .btn.btn-form:disabled:hover {
+  scale: 1;
+  box-shadow: none;
 }
