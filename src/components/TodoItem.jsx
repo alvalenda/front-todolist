@@ -1,6 +1,8 @@
+import { Card } from './shared/Card'
+import { MdDeleteOutline, MdEditNote } from 'react-icons/md'
 import { useState } from 'react'
 import PropTypes from 'prop-types'
-import { Card } from './shared/Card'
+import './TodoItem.css'
 
 export const TodoItem = ({ item, handleDelete, handleEdit, handleCheck }) => {
   const [todoCheck, setTodoCheck] = useState(item.completed)
@@ -23,10 +25,10 @@ export const TodoItem = ({ item, handleDelete, handleEdit, handleCheck }) => {
       />
       <div className='text-display'>{item.todo}</div>
       <button onClick={() => handleDelete(item.id)} className='close'>
-        Delete
+        <MdDeleteOutline size={30} color={'white'} />
       </button>
       <button onClick={() => handleEdit(item)} className='edit'>
-        Edit
+        <MdEditNote size={30} color={'white'} />
       </button>
     </Card>
   )
