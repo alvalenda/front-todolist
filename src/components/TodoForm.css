@@ -7,7 +7,7 @@ form {
 
 form input[type='text'] {
   min-height: 1.8rem;
-  width: 90%;
+  width: 25rem;
   border-radius: 12px;
   text-indent: 1rem;
   border: none;
@@ -16,22 +16,36 @@ form input[type='text'] {
   font-weight: 400;
 }
 
+form button {
+  position: absolute;
+  left: 20rem;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  box-shadow: 0 0 1px 1px brown;
+}
+
 .todo-filter-container {
   display: flex;
-  justify-content: space-between;
-  align-content: space-between;
-  width: 30%;
+  justify-content: flex-end;
+  align-content: center;
+  width: 8rem;
 
   color: aliceblue;
 }
 .todo-filter-container label {
-  margin: auto 0.5rem auto 0;
+  position: absolute;
+  top: 5px;
+  right: 3.3rem;
 }
 
 .todo-filter-container #todoFilter {
   border-radius: 24px;
   height: 1.8rem;
+  width: 6.5rem;
   text-align: center;
+  outline: none;
 }
 
 ::selection {
