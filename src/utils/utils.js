@@ -20,9 +20,9 @@ export const sortedTodoList = (todoList) => {
   todoList.sort((a, b) => a.completed - b.completed || a.id - b.id)
 }
 
-/////////////////////////////// MOTION
+/////////////////////////////// MOTION ///////////////////////
 export const motionItem = {
-  hidden: { x: -100, opacity: 0 },
+  hidden: { y: 150, opacity: 0 },
   visible: {
     x: 0,
     y: 0,
@@ -30,9 +30,10 @@ export const motionItem = {
     transition: {
       type: 'spring',
       stiffness: 100,
-      x: { duration: 0.8, easing: 'easeOutQuart' },
-      y: { duration: 0.8, easing: 'easeOutQuart' },
-      opacity: { duration: 1.5, easing: 'easeOutQuart' },
+      x: { duration: 0.5, easing: 'easeOutQuart' },
+      y: { duration: 0.5, easing: 'easeOutQuart' },
+      opacity: { duration: 0.5, easing: 'easeOutQuart' },
+      delay: 0.2,
       default: { ease: 'linear' },
     },
   },
@@ -43,20 +44,20 @@ export const motionItem = {
     transition: {
       type: 'spring',
       stiffness: 100,
-      x: { duration: 0.8, easing: 'easeOutQuart' },
-      y: { duration: 0.8, easing: 'ease' },
-      opacity: { duration: 1.5, easing: 'easeOutQuart' },
-      delay: 1,
+      x: { duration: 0.5, easing: 'easeOutQuart' },
+      y: { duration: 0.5, easing: 'ease' },
+      opacity: { duration: 0.5, easing: 'easeOutQuart' },
+      delay: 0.3,
       default: { ease: 'linear' },
     },
   },
 }
-
+// delay in visible 0.2 and completed 0.3 workds fine. maybe 0.4 in completed
 export const motionExit = {
   x: 90,
   opacity: 0,
   transition: {
-    x: { duration: 0.8, easing: 'ease' },
-    opacity: { duration: 0.8, easing: 'easeOutQuart' },
+    x: { duration: 0.5, easing: 'ease' },
+    opacity: { duration: 0.5, easing: 'easeOutQuart' },
   },
 }
