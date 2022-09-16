@@ -6,7 +6,7 @@ export const TodoItem = ({ item, handleDelete, handleEdit, handleCheck }) => {
   const [todoCheck, setTodoCheck] = useState(item.completed)
 
   const handleChange = () => {
-    console.log(!todoCheck)
+    // console.log(!todoCheck)
     setTodoCheck((prevState) => !prevState)
     handleCheck(item.id, !todoCheck)
   }
