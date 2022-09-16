@@ -7,9 +7,7 @@ import './TodoForm.css'
 export const TodoForm = ({ filter }) => {
   const [text, setText] = useState(() => '')
   const [btnDisabled, setBtnDisabled] = useState(() => true)
-  const [message, setMessage] = useState(
-    () => 'Text must be at least 10 characters long'
-  )
+  const [message, setMessage] = useState(() => '')
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -18,20 +16,21 @@ export const TodoForm = ({ filter }) => {
 
   const handleTextChange = (e) => {
     const newText = e.target.value
+    console.log(e.target.value)
     setText(() => newText)
 
     if (newText === '') {
       setBtnDisabled(() => true)
-      setMessage(() => null)
+      setMessage(() => '')
       return
     }
-    if (newText !== '' && newText.trim().length < 10) {
+    if (newText !== '' && newText.trim().length < 8) {
       setBtnDisabled(() => true)
-      setMessage(() => 'Text must be at least 10 characters long')
+      setMessage(() => 'Text must be at least 8 characters long')
       return
     }
     setBtnDisabled(() => false)
-    setMessage(() => null)
+    setMessage(() => '')
   }
 
   return (
@@ -43,7 +42,9 @@ export const TodoForm = ({ filter }) => {
           placeholder='add a todo'
           onChange={handleTextChange}
         />
-        <Button type='submit'>ADD</Button>
+        <Button type='submit' version={'form'} isDisabled={btnDisabled}>
+          ADD
+        </Button>
         {filter && <TodoFilter />}
         <div className='message'>{message}</div>
       </form>
