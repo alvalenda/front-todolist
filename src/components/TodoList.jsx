@@ -17,7 +17,7 @@ export const TodoList = ({ todoList, setTodoList, handleCheck }) => {
       <AnimatePresence>
         {todoList.map((item) => (
           <motion.div
-            key={item.id}
+            key={!item.completed ? item.id : `${item.id} + completed`}
             className='Motion'
             variants={motionItem}
             initial='hidden'
@@ -37,3 +37,5 @@ export const TodoList = ({ todoList, setTodoList, handleCheck }) => {
     </div>
   )
 }
+
+// SE A LISTA QUEBRAR POR CAUSA DA ANIMAÇÃO, ACUMULANDO VALORES OU ETC... É POR CAUSA DO ID DINÂMICO IMPLEMENTADO. ELE PERMITE QUE <ANIMATEPRESENCE> TRATE A DIV COMO UMA ELEMENTO NOVO QUANDO SUA KEY É ALTERADA
