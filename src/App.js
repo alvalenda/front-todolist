@@ -5,6 +5,7 @@ import { TodoList } from './components/TodoList'
 import { todoData } from './mocks/data'
 import { TodoMetadata } from './components/TodoMetadata'
 import { useState, useEffect } from 'react'
+import { sortedTodoList } from './utils/utils'
 
 export function App() {
   const [todoList, setTodoList] = useState(() => [])
@@ -15,22 +16,22 @@ export function App() {
       return item
     })
 
-    newList.sort((a, b) => a.completed - b.completed || a.id - b.id)
-    console.log(newList)
+    sortedTodoList(newList)
+    // newList.sort((a, b) => a.completed - b.completed || a.id - b.id)
+    // console.log(newList)
 
     setTodoList(() => newList)
   }
 
   useEffect(() => {
-    setTodoList(() =>
-      todoData.sort((a, b) => a.completed - b.completed || a.id - b.id)
-    )
+    sortedTodoList(todoData)
+    setTodoList(() => todoData)
   }, [])
 
   return (
     <div className='App'>
       <Header />
-      <TodoForm filter={true} />
+      <TodoForm filter={true} todoList={todoList} setTodoList={setTodoList} />
       <TodoMetadata todoList={todoList} />
       <TodoList
         todoList={todoList}
