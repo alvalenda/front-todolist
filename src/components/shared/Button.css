@@ -2,13 +2,18 @@
   transition: all 0.5s ease;
 }
 
-form button {
+form .btn-form {
   background-color: rgba(165, 42, 42, 0.9);
   color: white;
+}
+
+form .btn-form:hover {
+  box-shadow: none;
 }
 
 button:disabled {
   color: black;
   background-color: lightgrey;
   filter: saturate(0);
+  cursor: default;
 }
