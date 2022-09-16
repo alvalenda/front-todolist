@@ -3,10 +3,11 @@ form {
   justify-content: center;
   align-items: center;
   width: 95%;
+  height: 5rem;
 }
 
 form input[type='text'] {
-  min-height: 1.8rem;
+  min-height: 2rem;
   width: 25rem;
   border-radius: 12px;
   text-indent: 1rem;
@@ -31,21 +32,26 @@ button:hover {
   justify-content: flex-end;
   align-content: center;
   width: 8rem;
-
   color: aliceblue;
 }
 .todo-filter-container label {
   position: absolute;
-  top: 5px;
+  top: 12px;
   right: 3.3rem;
 }
 
 .todo-filter-container #todoFilter {
   border-radius: 24px;
-  height: 1.8rem;
+  height: 2rem;
   width: 6.5rem;
   text-align: center;
   outline: none;
+}
+
+select option:checked,
+select option:hover {
+  box-shadow: 0 0 10px 100px brown inset !important;
+  background-color: brown !important;
 }
 
 ::selection {
