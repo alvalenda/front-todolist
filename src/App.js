@@ -15,11 +15,7 @@ export function App() {
       if (item.id === id) item.completed = state
       return item
     })
-
     sortedTodoList(newList)
-    // newList.sort((a, b) => a.completed - b.completed || a.id - b.id)
-    // console.log(newList)
-
     setTodoList(() => newList)
   }
 
