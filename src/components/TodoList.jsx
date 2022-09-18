@@ -2,12 +2,11 @@ import { TodoItem } from './TodoItem'
 import { motionItem, motionExit } from '../utils/utils'
 import { motion, AnimatePresence } from 'framer-motion'
 
-export const TodoList = ({ todoList, setTodoList, handleCheck }) => {
-  const deleteTodo = (id) => {
-    if (window.confirm('Are you sure you want to delete Todo ' + id + '?'))
-      setTodoList(() => todoList.filter((item) => item.id !== id))
-  }
-
+export const TodoList = ({ todoList, handleCheck, handleDelete }) => {
+  // const deleteTodo = (id) => {
+  //   if (window.confirm('Are you sure you want to delete Todo ' + id + '?'))
+  //     setTodoList(() => todoList.filter((item) => item.id !== id))
+  // }
   const editTodo = (todo) => {
     console.log(todo)
   }
@@ -27,7 +26,7 @@ export const TodoList = ({ todoList, setTodoList, handleCheck }) => {
             <TodoItem
               key={item.id}
               item={item}
-              handleDelete={deleteTodo}
+              handleDelete={handleDelete}
               handleEdit={editTodo}
               handleCheck={handleCheck}
             />
