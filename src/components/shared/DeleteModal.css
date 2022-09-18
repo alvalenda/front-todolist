@@ -32,7 +32,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 3rem;
+  padding-bottom: 20px;
+  height: 3.5rem;
+  width: 100%;
 }
 
 .buttons-container button {
@@ -41,9 +43,14 @@
   color: white;
   margin: auto 0.5em auto 0.5em;
   padding: 0.2em 0.5rem 0.2em 0.5rem;
-  width: 5.6rem;
-  height: 3.5rem;
+  width: 6rem;
+  height: 3rem;
   border-radius: 24px;
-  font-size: 22px;
-  font-weight: 400;
+  font-size: 21px;
+  font-weight: 300;
+  transition: box-shadow 0.5s ease;
+}
+
+.buttons-container button:hover {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.6);
 }
