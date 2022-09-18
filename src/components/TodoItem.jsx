@@ -24,7 +24,7 @@ export const TodoItem = ({ item, handleDelete, handleEdit, handleCheck }) => {
         checked={todoCheck}
       />
       <div className='text-display'>{item.todo}</div>
-      <button onClick={() => handleDelete(item.id)} className='close'>
+      <button onClick={() => handleDelete(item)} className='close'>
         <MdDeleteOutline size={30} color={'white'} />
       </button>
       <button onClick={() => handleEdit(item)} className='edit'>
