@@ -13,7 +13,6 @@ export const DeleteModal = ({
   return (
     <Modal
       isOpen={isOpen}
-      onAfterOpen={onAfterOpen}
       onRequestClose={onRequestClose}
       style={style}
       contentLabel={contentLabel}
@@ -22,11 +21,14 @@ export const DeleteModal = ({
     >
       <div className='description'>
         <p>You are about to delete the item:</p>
-        <span>"{todoItem}"</span>
+        <span>"{todoItem.todo}"</span>
       </div>
       <h2 className='subtitle'> Are You sure? </h2>
       <div className='buttons-container'>
-        <button onClick={handleConfirm} className={'delete-modal'}>
+        <button
+          onClick={() => handleConfirm(todoItem.id)}
+          className={'delete-modal'}
+        >
           Yes
         </button>
         <button onClick={onRequestClose} version={'cancel-modal'}>
@@ -44,14 +46,18 @@ DeleteModal.defaultProps = {
       left: '50%',
       right: 'auto',
       bottom: 'auto',
+      padding: '0px 50px',
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
       background: 'rgba(25, 25, 25, 0.95)',
       borderRadius: '24px',
-      boxShadow: '0 0 1200px -1px rgb(0, 0, 0)',
+      border: 'none',
     },
     overlay: {
       background: 'rgba(0, 0, 0, 0.8)',
     },
+  },
+  todoItem: {
+    todo: 'Todo Item',
   },
 }
