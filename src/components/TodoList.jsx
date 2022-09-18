@@ -3,10 +3,6 @@ import { motionItem, motionExit } from '../utils/utils'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export const TodoList = ({ todoList, handleCheck, handleDelete }) => {
-  // const deleteTodo = (id) => {
-  //   if (window.confirm('Are you sure you want to delete Todo ' + id + '?'))
-  //     setTodoList(() => todoList.filter((item) => item.id !== id))
-  // }
   const editTodo = (todo) => {
     console.log(todo)
   }
