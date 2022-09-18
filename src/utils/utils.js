@@ -61,3 +61,12 @@ export const motionExit = {
     opacity: { duration: 0.5, easing: 'easeOutQuart' },
   },
 }
+
+///////////////////////////////////////////////
+export const emptyTodo = {
+  id: null,
+  todo: null,
+  completed: null,
+  created_at: null,
+  completed_at: null,
+}
