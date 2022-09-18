@@ -1,20 +1,19 @@
 import { createContext, useState, useEffect } from 'react'
-import { emptyTodo } from '../utils/utils'
+import { sortedTodoList, emptyTodo } from '../utils/utils'
 import { todoData } from '../mocks/data'
 
-export const TodoContext = createContext()
+const TodoContext = createContext()
 
 export const TodoProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(() => true)
   const [todoList, setTodoList] = useState(() => [])
-  const [todoDelete, setTodoDelete] = useEffect(() => ({ ...emptyTodo }))
-  const [todoEdit, setTodoEdit] = useState(() => ({ ...emptyTodo }))
 
   useEffect(() => {
     fetchTodoList()
   }, [])
 
   const fetchTodoList = () => {
+    sortedTodoList(todoData)
     setTodoList(() => todoData)
     setIsLoading(() => false)
   }
@@ -26,23 +25,36 @@ export const TodoProvider = ({ children }) => {
     // setTodoList(()=> newList)
   }
 
-  const deleteTodo = (todo) => {}
+  const deleteTodo = (id) => {
+    setTodoList(() => todoList.filter((item) => item.id !== id))
+  }
 
   const updateTodo = (id, updItem) => {}
+
+  const setTodoCompleted = (id, state) => {
+    const newList = todoList.map((item) => {
+      if (item.id === id) item.completed = state
+      return item
+    })
+    // na API precisará fazer PUT
+    sortedTodoList(newList)
+    setTodoList(() => newList)
+  }
 
   return (
     <TodoContext.Provider
       value={{
         isLoading,
         todoList,
-        todoDelete,
-        todoEdit,
         addTodo,
         deleteTodo,
         updateTodo,
+        setTodoCompleted,
       }}
     >
       {children}
     </TodoContext.Provider>
   )
 }
+
+export default TodoContext
