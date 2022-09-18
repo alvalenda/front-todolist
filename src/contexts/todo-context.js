@@ -1,7 +1,8 @@
 import { createContext, useState, useEffect } from 'react'
 import { emptyTodo } from '../utils/utils'
 import { todoData } from '../mocks/data'
-const TodoContext = createContext()
+
+export const TodoContext = createContext()
 
 export const TodoProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(() => true)
@@ -45,5 +46,3 @@ export const TodoProvider = ({ children }) => {
     </TodoContext.Provider>
   )
 }
-
-export default TodoContext
