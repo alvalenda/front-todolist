@@ -1,16 +1,19 @@
 import { Card } from './shared/Card'
 import { MdDeleteOutline, MdEditNote } from 'react-icons/md'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import TodoContext from '../contexts/TodoContext'
+import ModalContext from '../contexts/ModalContext'
 import PropTypes from 'prop-types'
 import './TodoItem.css'
 
 export const TodoItem = ({ item, handleDelete, handleEdit, handleCheck }) => {
   const [todoCheck, setTodoCheck] = useState(item.completed)
+  const { setTodoCompleted } = useContext(TodoContext)
+  const { handleDeleteModal } = useContext(ModalContext)
 
   const handleChange = () => {
-    // console.log(!todoCheck)
     setTodoCheck((prevState) => !prevState)
-    handleCheck(item.id, !todoCheck)
+    setTodoCompleted(item.id, !todoCheck)
   }
 
   return (
@@ -24,7 +27,7 @@ export const TodoItem = ({ item, handleDelete, handleEdit, handleCheck }) => {
         checked={todoCheck}
       />
       <div className='text-display'>{item.todo}</div>
-      <button onClick={() => handleDelete(item)} className='close'>
+      <button onClick={() => handleDeleteModal(item)} className='close'>
         <MdDeleteOutline size={30} color={'white'} />
       </button>
       <button onClick={() => handleEdit(item)} className='edit'>

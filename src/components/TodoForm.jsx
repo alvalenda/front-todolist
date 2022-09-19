@@ -1,29 +1,29 @@
 import { Card } from './shared/Card'
 import { Button } from './shared/Button'
 import { TodoFilter } from './TodoFilter'
-import { findFreeId, sortedTodoList } from '../utils/utils'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import TodoContext from '../contexts/TodoContext'
 import './TodoForm.css'
 
-export const TodoForm = ({ filter, todoList, setTodoList }) => {
+export const TodoForm = ({ filter }) => {
   const [text, setText] = useState(() => '')
   const [btnDisabled, setBtnDisabled] = useState(() => true)
   const [message, setMessage] = useState(() => '')
+  const { addTodo } = useContext(TodoContext)
 
   const handleSubmit = (e) => {
     e.preventDefault()
+
     if (text.trim().length < 8) return
     const newTodo = {
-      id: findFreeId(todoList),
+      id: undefined,
       todo: text,
       completed: false,
-      created_at: new Date().toLocaleString(),
+      created_at: new Date().toUTCString(),
       completed_at: null,
     }
-    const newList = [...todoList, newTodo]
 
-    sortedTodoList(newList)
-    setTodoList(() => newList)
+    addTodo(newTodo)
     setBtnDisabled(() => true)
     setText(() => '')
   }

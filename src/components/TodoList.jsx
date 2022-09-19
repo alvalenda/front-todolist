@@ -1,12 +1,11 @@
 import { TodoItem } from './TodoItem'
 import { motionItem, motionExit } from '../utils/utils'
 import { motion, AnimatePresence } from 'framer-motion'
+import TodoContext from '../contexts/TodoContext'
+import { useContext } from 'react'
 
-export const TodoList = ({ todoList, handleCheck, handleDelete }) => {
-  const editTodo = (todo) => {
-    console.log(todo)
-  }
-
+export const TodoList = () => {
+  const { todoList } = useContext(TodoContext)
   return (
     <div className='todo-list'>
       <AnimatePresence>
@@ -19,13 +18,7 @@ export const TodoList = ({ todoList, handleCheck, handleDelete }) => {
             animate={item.completed ? 'completed' : 'visible'}
             exit={motionExit}
           >
-            <TodoItem
-              key={item.id}
-              item={item}
-              handleDelete={handleDelete}
-              handleEdit={editTodo}
-              handleCheck={handleCheck}
-            />
+            <TodoItem key={item.id} item={item} />
           </motion.div>
         ))}
       </AnimatePresence>

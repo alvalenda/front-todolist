@@ -1,7 +1,8 @@
 import { createContext, useState, useContext } from 'react'
 import { emptyTodo } from '../utils/utils'
+import TodoContext from './TodoContext'
 
-export const ModalContext = createContext()
+const ModalContext = createContext()
 
 export const ModalProvider = ({ children }) => {
   const { deleteTodo } = useContext(TodoContext)

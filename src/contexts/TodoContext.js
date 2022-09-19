@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from 'react'
-import { sortedTodoList, emptyTodo, findFreeId } from '../utils/utils'
+import { sortedTodoList, findFreeId } from '../utils/utils'
 import { todoData } from '../mocks/data'
 
 const TodoContext = createContext()
@@ -13,6 +13,7 @@ export const TodoProvider = ({ children }) => {
   }, [])
 
   const fetchTodoList = () => {
+    console.log(todoData)
     sortedTodoList(todoData)
     setTodoList(() => todoData)
     setIsLoading(() => false)
@@ -33,7 +34,10 @@ export const TodoProvider = ({ children }) => {
 
   const setTodoCompleted = (id, state) => {
     const newList = todoList.map((item) => {
-      if (item.id === id) item.completed = state
+      if (item.id === id) {
+        item.completed = state
+        item.completed_at = new Date().toUTCString()
+      }
       return item
     })
     // na API precisará fazer PUT
