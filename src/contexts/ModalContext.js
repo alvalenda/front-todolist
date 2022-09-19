@@ -20,6 +20,11 @@ export const ModalProvider = ({ children }) => {
     handleDeleteModal()
   }
 
+  const handleEditModal = (item = emptyTodo) => {
+    setSelectedItem(() => ({ ...item }))
+    setIsEditing((prevState) => !prevState)
+  }
+
   return (
     <ModalContext.Provider
       value={{
@@ -28,6 +33,7 @@ export const ModalProvider = ({ children }) => {
         selectedItem,
         handleDeleteModal,
         handleDeleteConfirm,
+        handleEditModal,
       }}
     >
       {children}

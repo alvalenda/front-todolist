@@ -19,7 +19,7 @@ export const TodoForm = ({ filter }) => {
       id: undefined,
       todo: text,
       completed: false,
-      created_at: new Date().toUTCString(),
+      created_at: new Date().toLocaleString('pt-br'),
       completed_at: null,
     }
 

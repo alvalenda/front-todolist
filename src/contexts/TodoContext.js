@@ -36,7 +36,7 @@ export const TodoProvider = ({ children }) => {
     const newList = todoList.map((item) => {
       if (item.id === id) {
         item.completed = state
-        item.completed_at = new Date().toUTCString()
+        item.completed_at = new Date().toLocaleString('pt-br')
       }
       return item
     })

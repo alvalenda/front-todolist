@@ -7,12 +7,19 @@ import ModalContext from './contexts/ModalContext'
 import { useContext } from 'react'
 import Modal from 'react-modal'
 import { DeleteModal } from './components/shared/DeleteModal'
+import { EditModal } from './components/shared/EditModal'
 
 Modal.setAppElement('#root')
 
 export function App() {
-  const { isDeleting, selectedItem, handleDeleteModal, handleDeleteConfirm } =
-    useContext(ModalContext)
+  const {
+    isDeleting,
+    isEditing,
+    selectedItem,
+    handleDeleteModal,
+    handleDeleteConfirm,
+    handleEditModal,
+  } = useContext(ModalContext)
 
   return (
     <div className='App'>
@@ -26,6 +33,13 @@ export function App() {
         contentLabel={'Confirm deletion'}
         onRequestClose={handleDeleteModal}
         handleConfirm={handleDeleteConfirm}
+        todoItem={selectedItem}
+      />
+      <EditModal
+        isOpen={isEditing}
+        contentLabel={'Detailed Todo Modal'}
+        onRequestClose={handleEditModal}
+        handleConfirm={handleEditModal}
         todoItem={selectedItem}
       />
     </div>
