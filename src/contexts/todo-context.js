@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from 'react'
-import { sortedTodoList, emptyTodo } from '../utils/utils'
+import { sortedTodoList, emptyTodo, findFreeId } from '../utils/utils'
 import { todoData } from '../mocks/data'
 
 const TodoContext = createContext()
@@ -19,10 +19,10 @@ export const TodoProvider = ({ children }) => {
   }
 
   const addTodo = (newTodo) => {
-    // newTodo.id = findFreeId(todoList)
-    // const newList = [newTodo, ...todoList]
-    // sortedTodoList(newList)
-    // setTodoList(()=> newList)
+    newTodo.id = findFreeId(todoList)
+    const newList = [newTodo, ...todoList]
+    sortedTodoList(newList)
+    setTodoList(() => newList)
   }
 
   const deleteTodo = (id) => {

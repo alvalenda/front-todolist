@@ -1,7 +1,5 @@
-import { createContext, useState, useEffect, useContext } from 'react'
+import { createContext, useState, useContext } from 'react'
 import { emptyTodo } from '../utils/utils'
-import Modal from 'react-modal'
-import { DeleteModal } from './components/shared/DeleteModal'
 
 export const ModalContext = createContext()
 
@@ -27,7 +25,7 @@ export const ModalProvider = ({ children }) => {
         isDeleting,
         isEditing,
         selectedItem,
-        handleModal,
+        handleDeleteModal,
         handleDeleteConfirm,
       }}
     >
