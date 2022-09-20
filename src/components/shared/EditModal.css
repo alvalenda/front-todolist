@@ -5,10 +5,6 @@
   color: white;
 }
 
-/* .modal-container > * {
-  font-family: 'Fira Sans', sans-serif;
-} */
-
 .modal-container {
   position: relative;
   width: 33rem;
@@ -78,8 +74,8 @@
 
 .modal-container .edit-modal {
   position: absolute;
-  top: calc(0% + 5.7rem);
-  left: calc(100% - 3.5rem);
+  top: calc(0% + 5.6rem);
+  left: calc(100% - 3.7rem);
   background-color: transparent;
   color: white;
 }
@@ -88,4 +84,8 @@
   height: 6rem;
   margin: auto auto;
   padding: 0;
+}
+
+.modal-container .buttons-container .Btn {
+  scale: 1.1;
 }
