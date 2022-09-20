@@ -2,18 +2,16 @@
 .ReactModal__Html--open {
   overflow: hidden;
   border: none;
-  color: white;
 }
 
 .modal-container {
   position: relative;
   width: 35rem;
   height: 24rem;
-  border-radius: 9px;
-  margin: 25px;
-  padding: 10px 10px;
-  background-color: rgba(165, 42, 42, 0.9);
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.6);
+  margin: 5px;
+  padding: 10px 15px 0 12px;
+  /* background-color: rgba(165, 42, 42, 0.9); */
+  /* box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.6); */
   transition: all 1s ease-in-out;
 }
 
@@ -96,6 +94,7 @@
   font-size: 23px;
   border-radius: 38px;
   transition: filter 0.8s ease-in-out;
+  transition: box-shadow 0.3s linear;
 }
 
 .modal-container .buttons-container .Btn:disabled {
