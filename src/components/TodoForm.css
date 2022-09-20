@@ -2,7 +2,7 @@ div.card {
   max-width: 40rem;
 }
 
-form {
+.card form {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,7 +10,7 @@ form {
   height: 5rem;
 }
 
-form input[type='text'] {
+.card form input[type='text'] {
   position: absolute;
   left: 1rem;
   min-height: 2rem;
@@ -66,7 +66,7 @@ select option:hover {
   color: #bd2a2e;
 }
 
-form input:focus {
+.card form input:focus {
   border: none;
   outline: none;
   box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.5);
