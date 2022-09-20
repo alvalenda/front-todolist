@@ -15,10 +15,12 @@ export function App() {
   const {
     isDeleting,
     isEditing,
+    isEditingBtn,
     selectedItem,
     handleDeleteModal,
     handleDeleteConfirm,
     handleEditModal,
+    handleEditButton,
   } = useContext(ModalContext)
 
   return (
@@ -41,6 +43,8 @@ export function App() {
         onRequestClose={handleEditModal}
         handleConfirm={handleEditModal}
         todoItem={selectedItem}
+        isEditingBtn={isEditingBtn}
+        handleEditBtn={handleEditButton}
       />
     </div>
   )

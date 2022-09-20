@@ -1,5 +1,6 @@
 import './EditModal.css'
 import Modal from 'react-modal'
+import { useState, useEffect } from 'react'
 import { MdEditNote, MdClose } from 'react-icons/md'
 import { elapsedTime, printDate } from '../../utils/utils'
 
@@ -9,9 +10,37 @@ export const EditModal = ({
   onRequestClose,
   style,
   contentLabel,
+  isEditingBtn,
+  handleEditBtn,
   handleConfirm,
   todoItem,
 }) => {
+  const [editText, setEditText] = useState(() => '')
+
+  useEffect(() => {
+    console.log(editText)
+    setEditText(() => todoItem.todo ?? ' ')
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [handleEditBtn])
+
+  const handleTextChange = (e) => {
+    const newText = e.target.value
+    setEditText(() => newText)
+
+    if (newText === '') {
+      //   setBtnDisabled(() => true)
+      //   setMessage(() => '')
+      return
+    }
+    if (newText !== '' && newText.trim().length < 8) {
+      //   setBtnDisabled(() => true)
+      //   setMessage(() => 'Text must be at least 8 characters long')
+      return
+    }
+    // setMessage(() => '')
+    // setBtnDisabled(() => false)
+  }
+
   return (
     <Modal
       isOpen={isOpen}
@@ -25,7 +54,18 @@ export const EditModal = ({
         <h2>Todo Item</h2>
         <div className='text-container'>
           <label>Description</label>
-          <p className='todo-item'> {todoItem.todo}</p>
+          {!isEditingBtn ? (
+            <p className='todo-item'> {todoItem.todo}</p>
+          ) : (
+            <input
+              name='edit-todo'
+              type='text'
+              id='edit-todo'
+              value={editText}
+              onChange={handleTextChange}
+              autoFocus
+            />
+          )}
         </div>
         <div className='text-container'>
           <label>Created at</label>
@@ -46,15 +86,28 @@ export const EditModal = ({
           <span className='duration-item'>{elapsedTime(todoItem)}</span>
         </div>
 
-        <button
-          onClick={() => handleConfirm(todoItem.id)}
-          className={'delete-modal'}
-        >
-          <MdEditNote size={30} />
-        </button>
-        <button onClick={onRequestClose} version={'cancel-modal'}>
-          <MdClose size={30} />
-        </button>
+        {!isEditingBtn ? (
+          <button onClick={handleEditBtn} className={'edit-modal'}>
+            <MdEditNote size={30} />
+          </button>
+        ) : (
+          <button onClick={handleEditBtn} className={'edit-modal'}>
+            <MdClose size={30} />
+          </button>
+        )}
+        <div className='buttons-container'>
+          {isEditingBtn && (
+            <button
+              onClick={() => console.log('Editei essa porra!')}
+              className={'Btn'}
+            >
+              UPDATE
+            </button>
+          )}
+          <button onClick={onRequestClose} className={'Btn cancel-modal'}>
+            CLOSE
+          </button>
+        </div>
       </div>
     </Modal>
   )

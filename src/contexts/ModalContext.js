@@ -8,6 +8,7 @@ export const ModalProvider = ({ children }) => {
   const { deleteTodo } = useContext(TodoContext)
   const [isDeleting, setIsDeleting] = useState(() => false)
   const [isEditing, setIsEditing] = useState(() => false)
+  const [isEditingBtn, setIsEditingBtn] = useState(() => false)
   const [selectedItem, setSelectedItem] = useState(() => ({ ...emptyTodo }))
 
   const handleDeleteModal = (item = emptyTodo) => {
@@ -25,15 +26,22 @@ export const ModalProvider = ({ children }) => {
     setIsEditing((prevState) => !prevState)
   }
 
+  const handleEditButton = () => {
+    console.log(!isEditingBtn)
+    setIsEditingBtn((prevState) => !prevState)
+  }
+
   return (
     <ModalContext.Provider
       value={{
         isDeleting,
         isEditing,
+        isEditingBtn,
         selectedItem,
         handleDeleteModal,
         handleDeleteConfirm,
         handleEditModal,
+        handleEditButton,
       }}
     >
       {children}
