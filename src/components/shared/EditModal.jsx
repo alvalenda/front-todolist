@@ -10,6 +10,7 @@ export const EditModal = ({ style, contentLabel }) => {
     isEditing,
     isEditingBtn,
     editText,
+    updBtnDisable,
     handleEditModal,
     handleEditButton,
     handleUpdate,
@@ -33,14 +34,16 @@ export const EditModal = ({ style, contentLabel }) => {
           {!isEditingBtn ? (
             <p className='todo-item'> {selectedItem.todo}</p>
           ) : (
-            <input
-              name='edit-todo'
-              type='text'
-              id='edit-todo'
-              value={editText}
-              onChange={handleTextChange}
-              autoFocus
-            />
+            <form onSubmit={handleUpdate} id='edit-form'>
+              <input
+                name='edit-todo'
+                type='text'
+                id='edit-todo'
+                value={editText}
+                onChange={handleTextChange}
+                autoFocus
+              />
+            </form>
           )}
         </div>
         <div className='text-container'>
@@ -77,11 +80,20 @@ export const EditModal = ({ style, contentLabel }) => {
         )}
         <div className='buttons-container'>
           {isEditingBtn && (
-            <button onClick={handleUpdate} className={'Btn'}>
+            <button
+              type={'form'}
+              form={'edit-form'}
+              className={'Btn'}
+              disabled={updBtnDisable}
+            >
               UPDATE
             </button>
           )}
-          <button onClick={handleEditModal} className={'Btn cancel-modal'}>
+          <button
+            onClick={handleEditModal}
+            type={'button'}
+            className={'Btn cancel-modal'}
+          >
             CLOSE
           </button>
         </div>

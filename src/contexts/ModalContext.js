@@ -10,6 +10,7 @@ export const ModalProvider = ({ children }) => {
   const [isEditing, setIsEditing] = useState(() => false)
   const [isEditingBtn, setIsEditingBtn] = useState(() => false)
   const [editText, setEditText] = useState(() => '')
+  const [updBtnDisable, setUpdBtnDisable] = useState(() => 'true')
   const [selectedItem, setSelectedItem] = useState(() => ({ ...emptyTodo }))
 
   useEffect(() => {
@@ -40,9 +41,28 @@ export const ModalProvider = ({ children }) => {
   const handleTextChange = (e) => {
     const newText = e.target.value
     setEditText(() => newText)
+
+    if (newText === '') {
+      setUpdBtnDisable(() => true)
+      return
+    }
+
+    if (newText !== '' && newText.trim().length < 8) {
+      setUpdBtnDisable(() => true)
+      return
+    }
+
+    if (newText.trim() === selectedItem.todo) {
+      setUpdBtnDisable(() => true)
+      return
+    }
+
+    setUpdBtnDisable(() => false)
   }
 
-  const handleUpdate = () => {
+  const handleUpdate = (e) => {
+    e.preventDefault()
+
     if (editText.trim().length < 8) {
       setEditText(() => 'Must be at least 8 characters long')
       return
@@ -68,6 +88,7 @@ export const ModalProvider = ({ children }) => {
         isEditingBtn,
         editText,
         selectedItem,
+        updBtnDisable,
         handleDeleteModal,
         handleDeleteConfirm,
         handleEditModal,
