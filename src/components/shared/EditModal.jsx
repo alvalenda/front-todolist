@@ -113,7 +113,7 @@ EditModal.defaultProps = {
       padding: '0',
       transform: 'translate(-50%, -50%)',
       background: 'rgba(25, 25, 25, 0.95)',
-      borderRadius: '18px',
+      borderRadius: '24px',
       border: 'none',
     },
     overlay: {
