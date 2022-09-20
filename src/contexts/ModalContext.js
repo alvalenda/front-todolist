@@ -19,7 +19,7 @@ export const ModalProvider = ({ children }) => {
   }, [isEditingBtn])
 
   const handleDeleteModal = (item = emptyTodo) => {
-    setSelectedItem(() => ({ ...item }))
+    setSelectedItem(() => item)
     setIsDeleting((prevState) => !prevState)
   }
 
@@ -29,8 +29,8 @@ export const ModalProvider = ({ children }) => {
   }
 
   const handleEditModal = (item = emptyTodo) => {
-    setSelectedItem(() => ({ ...item }))
-    // setIsEditingBtn(() => false)
+    setSelectedItem(() => item)
+    setIsEditingBtn(() => false)
     setIsEditing((prevState) => !prevState)
   }
 
@@ -39,7 +39,7 @@ export const ModalProvider = ({ children }) => {
   }
 
   const handleTextChange = (e) => {
-    const newText = e.target.value
+    let newText = e.target.value
     setEditText(() => newText)
 
     if (newText === '') {
@@ -68,13 +68,13 @@ export const ModalProvider = ({ children }) => {
       return
     }
 
-    if (editText.trim() === selectedItem.todo) {
+    if (editText === selectedItem.todo) {
       handleEditButton()
       return
     }
 
     const id = selectedItem.id
-    const updItem = { ...selectedItem, todo: editText }
+    const updItem = { ...selectedItem, todo: editText.trim() }
     updateTodo(id, updItem)
     setSelectedItem(() => updItem)
     handleEditButton()
