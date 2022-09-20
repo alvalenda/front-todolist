@@ -30,7 +30,13 @@ export const TodoProvider = ({ children }) => {
     setTodoList(() => todoList.filter((item) => item.id !== id))
   }
 
-  const updateTodo = (id, updItem) => {}
+  const updateTodo = (id, updItem) => {
+    setTodoList(() =>
+      todoList.map((item) => (item.id === id ? { ...updItem, id } : item))
+    )
+
+    console.log(id, updItem)
+  }
 
   const setTodoCompleted = (id, state) => {
     const newList = todoList.map((item) => {

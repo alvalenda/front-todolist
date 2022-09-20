@@ -7,7 +7,7 @@
 
 .modal-container {
   position: relative;
-  width: 33rem;
+  width: 35rem;
   height: 24rem;
   border-radius: 9px;
   margin: 25px;
@@ -40,7 +40,7 @@
 
 .text-container label {
   font-size: 1.3rem;
-  letter-spacing: -0.2px;
+  word-spacing: -1px;
   text-align: start;
   width: 7.6rem;
 }
@@ -49,10 +49,11 @@
 .text-container p,
 .text-container input {
   width: 80%;
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 12px;
-  padding: 0.22rem 0.4rem;
+  padding: 0.22rem 0.1rem;
   font-size: 1.4rem;
+  word-spacing: -0.5px;
   text-align: center;
   transition: all 0.5s ease;
 }
@@ -63,19 +64,18 @@
   color: white;
   outline: none;
   border: none;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.3);
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.8);
 }
 
 .text-container input:focus {
-  background-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 0 0 2px rgba(255, 96, 96, 0.9);
+  box-shadow: 0 0 0 3px rgba(251, 70, 70, 0.7);
 }
 
 .modal-container .edit-modal {
   position: absolute;
   top: calc(0% + 5.6rem);
-  left: calc(100% - 3.7rem);
+  left: calc(100% - 3.5rem);
   background-color: transparent;
   color: white;
 }

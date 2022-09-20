@@ -1,26 +1,21 @@
 import './EditModal.css'
 import Modal from 'react-modal'
 import ModalContext from '../../contexts/ModalContext'
-import { useState, useEffect, useContext } from 'react'
+import { useContext } from 'react'
 import { MdEditNote, MdClose } from 'react-icons/md'
 import { elapsedTime, printDate } from '../../utils/utils'
 
 export const EditModal = ({ style, contentLabel }) => {
-  const [editText, setEditText] = useState(() => '')
   const {
     isEditing,
     isEditingBtn,
+    editText,
     handleEditModal,
     handleEditButton,
+    handleUpdate,
     handleTextChange,
     selectedItem,
   } = useContext(ModalContext)
-
-  useEffect(() => {
-    console.log(editText)
-    setEditText(() => selectedItem.todo ?? '')
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [handleEditButton])
 
   return (
     <Modal
@@ -68,7 +63,11 @@ export const EditModal = ({ style, contentLabel }) => {
         </div>
 
         {!isEditingBtn ? (
-          <button onClick={handleEditButton} className={'edit-modal'}>
+          <button
+            type='button'
+            onClick={handleEditButton}
+            className={'edit-modal'}
+          >
             <MdEditNote size={34} />
           </button>
         ) : (
@@ -78,10 +77,7 @@ export const EditModal = ({ style, contentLabel }) => {
         )}
         <div className='buttons-container'>
           {isEditingBtn && (
-            <button
-              onClick={() => console.log('Editei essa porra!')}
-              className={'Btn'}
-            >
+            <button onClick={handleUpdate} className={'Btn'}>
               UPDATE
             </button>
           )}

@@ -5,7 +5,7 @@ import TodoContext from './TodoContext'
 const ModalContext = createContext()
 
 export const ModalProvider = ({ children }) => {
-  const { deleteTodo } = useContext(TodoContext)
+  const { deleteTodo, updateTodo } = useContext(TodoContext)
   const [isDeleting, setIsDeleting] = useState(() => false)
   const [isEditing, setIsEditing] = useState(() => false)
   const [isEditingBtn, setIsEditingBtn] = useState(() => false)
@@ -15,7 +15,7 @@ export const ModalProvider = ({ children }) => {
   useEffect(() => {
     setEditText(() => selectedItem.todo ?? '')
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isEditing])
+  }, [isEditingBtn])
 
   const handleDeleteModal = (item = emptyTodo) => {
     setSelectedItem(() => ({ ...item }))
@@ -40,19 +40,24 @@ export const ModalProvider = ({ children }) => {
   const handleTextChange = (e) => {
     const newText = e.target.value
     setEditText(() => newText)
+  }
 
-    if (newText === '') {
-      //   setBtnDisabled(() => true)
-      //   setMessage(() => '')
+  const handleUpdate = () => {
+    if (editText.trim().length < 8) {
+      setEditText(() => 'Must be at least 8 characters long')
       return
     }
-    if (newText !== '' && newText.trim().length < 8) {
-      //   setBtnDisabled(() => true)
-      //   setMessage(() => 'Text must be at least 8 characters long')
+
+    if (editText.trim() === selectedItem.todo) {
+      handleEditButton()
       return
     }
-    // setMessage(() => '')
-    // setBtnDisabled(() => false)
+
+    const id = selectedItem.id
+    const updItem = { ...selectedItem, todo: editText }
+    updateTodo(id, updItem)
+    setSelectedItem(() => updItem)
+    handleEditButton()
   }
 
   return (
@@ -68,6 +73,7 @@ export const ModalProvider = ({ children }) => {
         handleEditModal,
         handleEditButton,
         handleTextChange,
+        handleUpdate,
       }}
     >
       {children}
