@@ -45,9 +45,13 @@
   width: 7.6rem;
 }
 
+.text-container form {
+  display: contents;
+}
+
 .text-container span,
 .text-container p,
-.text-container input {
+.text-container form input {
   width: 80%;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 12px;
@@ -58,7 +62,7 @@
   transition: all 0.5s ease;
 }
 
-.text-container input {
+.text-container form input {
   font-family: 'Fira Sans', sans-serif;
   font-weight: 300;
   color: white;
@@ -68,7 +72,7 @@
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.8);
 }
 
-.text-container input:focus {
+.text-container form input:focus {
   box-shadow: 0 0 0 3px rgba(251, 70, 70, 0.7);
 }
 
@@ -87,5 +91,18 @@
 }
 
 .modal-container .buttons-container .Btn {
-  scale: 1.1;
+  width: 7rem;
+  height: 3.5rem;
+  font-size: 23px;
+  border-radius: 38px;
+  transition: filter 0.8s ease-in-out;
+}
+
+.modal-container .buttons-container .Btn:disabled {
+  opacity: 0.9;
+  filter: saturate(0.2);
+}
+
+.modal-container .buttons-container .Btn:disabled:hover {
+  box-shadow: none;
 }
