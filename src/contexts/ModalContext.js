@@ -1,4 +1,4 @@
-import { createContext, useState, useContext } from 'react'
+import { createContext, useState, useEffect, useContext } from 'react'
 import { emptyTodo } from '../utils/utils'
 import TodoContext from './TodoContext'
 
@@ -9,7 +9,13 @@ export const ModalProvider = ({ children }) => {
   const [isDeleting, setIsDeleting] = useState(() => false)
   const [isEditing, setIsEditing] = useState(() => false)
   const [isEditingBtn, setIsEditingBtn] = useState(() => false)
+  const [editText, setEditText] = useState(() => '')
   const [selectedItem, setSelectedItem] = useState(() => ({ ...emptyTodo }))
+
+  useEffect(() => {
+    setEditText(() => selectedItem.todo ?? '')
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isEditing])
 
   const handleDeleteModal = (item = emptyTodo) => {
     setSelectedItem(() => ({ ...item }))
@@ -23,12 +29,30 @@ export const ModalProvider = ({ children }) => {
 
   const handleEditModal = (item = emptyTodo) => {
     setSelectedItem(() => ({ ...item }))
+    setIsEditingBtn(() => false)
     setIsEditing((prevState) => !prevState)
   }
 
   const handleEditButton = () => {
-    console.log(!isEditingBtn)
     setIsEditingBtn((prevState) => !prevState)
+  }
+
+  const handleTextChange = (e) => {
+    const newText = e.target.value
+    setEditText(() => newText)
+
+    if (newText === '') {
+      //   setBtnDisabled(() => true)
+      //   setMessage(() => '')
+      return
+    }
+    if (newText !== '' && newText.trim().length < 8) {
+      //   setBtnDisabled(() => true)
+      //   setMessage(() => 'Text must be at least 8 characters long')
+      return
+    }
+    // setMessage(() => '')
+    // setBtnDisabled(() => false)
   }
 
   return (
@@ -37,11 +61,13 @@ export const ModalProvider = ({ children }) => {
         isDeleting,
         isEditing,
         isEditingBtn,
+        editText,
         selectedItem,
         handleDeleteModal,
         handleDeleteConfirm,
         handleEditModal,
         handleEditButton,
+        handleTextChange,
       }}
     >
       {children}

@@ -1,50 +1,31 @@
 import './EditModal.css'
 import Modal from 'react-modal'
-import { useState, useEffect } from 'react'
+import ModalContext from '../../contexts/ModalContext'
+import { useState, useEffect, useContext } from 'react'
 import { MdEditNote, MdClose } from 'react-icons/md'
 import { elapsedTime, printDate } from '../../utils/utils'
 
-export const EditModal = ({
-  isOpen,
-  onAfterOpen,
-  onRequestClose,
-  style,
-  contentLabel,
-  isEditingBtn,
-  handleEditBtn,
-  handleConfirm,
-  todoItem,
-}) => {
+export const EditModal = ({ style, contentLabel }) => {
   const [editText, setEditText] = useState(() => '')
+  const {
+    isEditing,
+    isEditingBtn,
+    handleEditModal,
+    handleEditButton,
+    handleTextChange,
+    selectedItem,
+  } = useContext(ModalContext)
 
   useEffect(() => {
     console.log(editText)
-    setEditText(() => todoItem.todo ?? ' ')
+    setEditText(() => selectedItem.todo ?? '')
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [handleEditBtn])
-
-  const handleTextChange = (e) => {
-    const newText = e.target.value
-    setEditText(() => newText)
-
-    if (newText === '') {
-      //   setBtnDisabled(() => true)
-      //   setMessage(() => '')
-      return
-    }
-    if (newText !== '' && newText.trim().length < 8) {
-      //   setBtnDisabled(() => true)
-      //   setMessage(() => 'Text must be at least 8 characters long')
-      return
-    }
-    // setMessage(() => '')
-    // setBtnDisabled(() => false)
-  }
+  }, [handleEditButton])
 
   return (
     <Modal
-      isOpen={isOpen}
-      onRequestClose={onRequestClose}
+      isOpen={isEditing}
+      onRequestClose={handleEditModal}
       style={style}
       contentLabel={contentLabel}
       shouldCloseOnOverlayClick={false}
@@ -55,7 +36,7 @@ export const EditModal = ({
         <div className='text-container'>
           <label>Description</label>
           {!isEditingBtn ? (
-            <p className='todo-item'> {todoItem.todo}</p>
+            <p className='todo-item'> {selectedItem.todo}</p>
           ) : (
             <input
               name='edit-todo'
@@ -70,29 +51,29 @@ export const EditModal = ({
         <div className='text-container'>
           <label>Created at</label>
           <span className='created-item'>
-            {todoItem.created_at ? printDate(todoItem.created_at) : ' '}
+            {selectedItem.created_at ? printDate(selectedItem.created_at) : ' '}
           </span>
         </div>
         <div className='text-container'>
           <label>Finished at</label>
           <span className='completed-item'>
-            {todoItem.completed
-              ? printDate(todoItem.completed_at)
+            {selectedItem.completed
+              ? printDate(selectedItem.completed_at)
               : 'Incompleted'}
           </span>
         </div>
         <div className='text-container'>
           <label>Duration</label>
-          <span className='duration-item'>{elapsedTime(todoItem)}</span>
+          <span className='duration-item'>{elapsedTime(selectedItem)}</span>
         </div>
 
         {!isEditingBtn ? (
-          <button onClick={handleEditBtn} className={'edit-modal'}>
-            <MdEditNote size={30} />
+          <button onClick={handleEditButton} className={'edit-modal'}>
+            <MdEditNote size={34} />
           </button>
         ) : (
-          <button onClick={handleEditBtn} className={'edit-modal'}>
-            <MdClose size={30} />
+          <button onClick={handleEditButton} className={'edit-modal'}>
+            <MdClose size={34} />
           </button>
         )}
         <div className='buttons-container'>
@@ -104,7 +85,7 @@ export const EditModal = ({
               UPDATE
             </button>
           )}
-          <button onClick={onRequestClose} className={'Btn cancel-modal'}>
+          <button onClick={handleEditModal} className={'Btn cancel-modal'}>
             CLOSE
           </button>
         </div>
@@ -130,10 +111,5 @@ EditModal.defaultProps = {
     overlay: {
       background: 'rgba(0, 0, 0, 0.8)',
     },
-  },
-  todoItem: {
-    todo: 'Todo Item',
-    created_at: '00/00/00',
-    completed_at: '00/00/00',
   },
 }

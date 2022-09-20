@@ -12,16 +12,8 @@ import { EditModal } from './components/shared/EditModal'
 Modal.setAppElement('#root')
 
 export function App() {
-  const {
-    isDeleting,
-    isEditing,
-    isEditingBtn,
-    selectedItem,
-    handleDeleteModal,
-    handleDeleteConfirm,
-    handleEditModal,
-    handleEditButton,
-  } = useContext(ModalContext)
+  const { isDeleting, selectedItem, handleDeleteModal, handleDeleteConfirm } =
+    useContext(ModalContext)
 
   return (
     <div className='App'>
@@ -37,15 +29,7 @@ export function App() {
         handleConfirm={handleDeleteConfirm}
         todoItem={selectedItem}
       />
-      <EditModal
-        isOpen={isEditing}
-        contentLabel={'Detailed Todo Modal'}
-        onRequestClose={handleEditModal}
-        handleConfirm={handleEditModal}
-        todoItem={selectedItem}
-        isEditingBtn={isEditingBtn}
-        handleEditBtn={handleEditButton}
-      />
+      <EditModal contentLabel={'Details Modal'} />
     </div>
   )
 }
