@@ -30,7 +30,6 @@ export const ModalProvider = ({ children }) => {
 
   const handleEditModal = (item = emptyTodo) => {
     setSelectedItem(() => ({ ...item }))
-    setIsEditingBtn(() => false)
     setIsEditing((prevState) => !prevState)
   }
 
