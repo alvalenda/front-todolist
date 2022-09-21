@@ -7,6 +7,7 @@ const TodoContext = createContext()
 export const TodoProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(() => true)
   const [todoList, setTodoList] = useState(() => [])
+  const [todoFilter, setTodoFilter] = useState(() => 'allTodos')
 
   useEffect(() => {
     fetchTodoList()
@@ -51,15 +52,22 @@ export const TodoProvider = ({ children }) => {
     setTodoList(() => newList)
   }
 
+  const handleTodoFilter = (filter) => {
+    console.log(filter)
+    setTodoFilter(() => filter)
+  }
+
   return (
     <TodoContext.Provider
       value={{
         isLoading,
         todoList,
+        todoFilter,
         addTodo,
         deleteTodo,
         updateTodo,
         setTodoCompleted,
+        handleTodoFilter,
       }}
     >
       {children}

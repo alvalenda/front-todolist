@@ -1,6 +1,10 @@
+import TodoContext from '../contexts/TodoContext'
+import { useContext } from 'react'
+
 export const TodoFilter = () => {
+  const { handleTodoFilter } = useContext(TodoContext)
   const handleFilter = (e) => {
-    console.log(e.target.value)
+    handleTodoFilter(e.target.value)
   }
   return (
     <div className='todo-filter-container'>

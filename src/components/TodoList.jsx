@@ -5,22 +5,34 @@ import TodoContext from '../contexts/TodoContext'
 import { useContext } from 'react'
 
 export const TodoList = () => {
-  const { todoList } = useContext(TodoContext)
+  const { todoList, todoFilter } = useContext(TodoContext)
+
   return (
     <div className='todo-list'>
       <AnimatePresence>
-        {todoList.map((item) => (
-          <motion.div
-            key={!item.completed ? item.id : `${item.id}--completed`}
-            className='Motion'
-            variants={motionItem}
-            initial='hidden'
-            animate={item.completed ? 'completed' : 'visible'}
-            exit={motionExit}
-          >
-            <TodoItem key={item.id} item={item} />
-          </motion.div>
-        ))}
+        {todoList.map((item) => {
+          const todoListReturn = (
+            <motion.div
+              key={!item.completed ? item.id : `${item.id}--completed`}
+              className='Motion'
+              variants={motionItem}
+              initial='hidden'
+              animate={item.completed ? 'completed' : 'visible'}
+              exit={motionExit}
+            >
+              <TodoItem key={item.id} item={item} />
+            </motion.div>
+          )
+
+          if (todoFilter === 'allTodos') return todoListReturn
+          else if (todoFilter === 'incompleteTodos') {
+            if (!item.completed) return todoListReturn
+          } else {
+            if (item.completed) return todoListReturn
+          }
+
+          return ''
+        })}
       </AnimatePresence>
     </div>
   )
