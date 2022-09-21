@@ -4,9 +4,15 @@
   align-items: center;
   justify-content: space-between;
   width: 80%;
-  max-width: 35rem;
+  max-width: 50rem;
   margin: 1.5rem auto 2.8rem auto;
   font-weight: 300;
+}
+
+@media (max-width: 1690px) {
+  .footer {
+    max-width: 40rem;
+  }
 }
 
 .footer p {
