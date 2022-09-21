@@ -14,11 +14,11 @@
 }
 
 .footer p:first-of-type {
-  left: calc(0% + 1rem);
+  left: calc(0%);
 }
 
 .footer p:only-child {
-  left: calc(100% - 6rem);
+  left: calc(100% - 4rem);
   display: flex;
   width: 7rem;
 }
