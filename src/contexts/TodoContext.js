@@ -14,7 +14,7 @@ export const TodoProvider = ({ children }) => {
   }, [])
 
   const fetchTodoList = () => {
-    console.log(todoData)
+    // console.log(todoData)
     sortedTodoList(todoData)
     setTodoList(() => todoData)
     setIsLoading(() => false)
@@ -53,7 +53,6 @@ export const TodoProvider = ({ children }) => {
   }
 
   const handleTodoFilter = (filter) => {
-    console.log(filter)
     setTodoFilter(() => filter)
   }
 
