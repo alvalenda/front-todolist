@@ -24,13 +24,21 @@ export const TodoList = () => {
             </motion.div>
           )
 
-          if (todoFilter === 'allTodos') return todoListReturn
-          else if (todoFilter === 'incompleteTodos') {
-            if (!item.completed) return todoListReturn
-          } else {
-            if (item.completed) return todoListReturn
-          }
+          switch (todoFilter) {
+            case 'allTodos':
+              return todoListReturn
 
+            case 'incompleteTodos':
+              if (!item.completed) return todoListReturn
+              break
+
+            case 'completedTodos':
+              if (item.completed) return todoListReturn
+              break
+
+            default:
+              break
+          }
           return ''
         })}
       </AnimatePresence>
