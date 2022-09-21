@@ -1,5 +1,5 @@
 import { TodoItem } from './TodoItem'
-import { motionItem, motionExit } from '../utils/utils'
+import { motionItem, motionExit } from '../utils/utils.motion'
 import { motion, AnimatePresence } from 'framer-motion'
 import TodoContext from '../contexts/TodoContext'
 import { useContext } from 'react'

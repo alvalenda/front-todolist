@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from 'react'
-import { sortedTodoList, findFreeId } from '../utils/utils'
+import { sortedTodoList, findFreeId } from '../utils/utils.todo'
 import { todoData } from '../mocks/data'
 
 const TodoContext = createContext()

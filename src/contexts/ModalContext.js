@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect, useContext } from 'react'
-import { emptyTodo } from '../utils/utils'
+import { emptyTodo } from '../utils/utils.todo'
 import TodoContext from './TodoContext'
 
 const ModalContext = createContext()
