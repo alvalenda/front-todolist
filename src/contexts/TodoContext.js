@@ -35,8 +35,7 @@ export const TodoProvider = ({ children }) => {
     setTodoList(() =>
       todoList.map((item) => (item.id === id ? { ...updItem, id } : item))
     )
-
-    console.log(id, updItem)
+//     console.log(id, updItem)
   }
 
   const setTodoCompleted = (id, state) => {
