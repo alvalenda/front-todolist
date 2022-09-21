@@ -10,11 +10,11 @@ export const ModalProvider = ({ children }) => {
   const [isEditing, setIsEditing] = useState(() => false)
   const [isEditingBtn, setIsEditingBtn] = useState(() => false)
   const [editText, setEditText] = useState(() => '')
-  const [updBtnDisable, setUpdBtnDisable] = useState(() => 'true')
+  const [updBtnDisable, setUpdBtnDisable] = useState(() => true)
   const [selectedItem, setSelectedItem] = useState(() => ({ ...emptyTodo }))
 
   useEffect(() => {
-    setEditText(() => selectedItem.todo ?? '')
+    if (isEditingBtn) setEditText(() => selectedItem.todo)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isEditingBtn])
 
@@ -35,24 +35,25 @@ export const ModalProvider = ({ children }) => {
   }
 
   const handleEditButton = () => {
+    if (isEditingBtn) setUpdBtnDisable(() => true)
     setIsEditingBtn((prevState) => !prevState)
   }
 
   const handleTextChange = (e) => {
-    let newText = e.target.value
-    setEditText(() => newText)
+    const newText = e.target.value.trim()
+    setEditText(() => e.target.value)
 
     if (newText === '') {
       setUpdBtnDisable(() => true)
       return
     }
 
-    if (newText !== '' && newText.trim().length < 8) {
+    if (newText !== '' && newText.length < 8) {
       setUpdBtnDisable(() => true)
       return
     }
 
-    if (newText.trim() === selectedItem.todo) {
+    if (newText === selectedItem.todo) {
       setUpdBtnDisable(() => true)
       return
     }
@@ -63,7 +64,7 @@ export const ModalProvider = ({ children }) => {
   const handleUpdate = (e) => {
     e.preventDefault()
 
-    if (editText.trim().length < 8) {
+    if (editText.length < 8) {
       setEditText(() => 'Must be at least 8 characters long')
       return
     }

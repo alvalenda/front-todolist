@@ -70,8 +70,8 @@
 
 .modal-container .edit-modal {
   position: absolute;
-  top: calc(0% + 5.6rem);
-  left: calc(100% - 3.7rem);
+  top: calc(0% + 5.55rem);
+  left: calc(100% - 3.75rem);
   background-color: transparent;
   color: white;
 }
