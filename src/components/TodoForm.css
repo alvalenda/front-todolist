@@ -62,8 +62,8 @@ select option:hover {
 }
 
 ::selection {
-  background: #bd2a2e;
-  color: #bd2a2e;
+  background: rgb(189, 42, 46, 0.8);
+  color: rgb(255, 255, 255);
 }
 
 .card form input:focus {
