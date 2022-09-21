@@ -6,7 +6,7 @@ export const TodoMetadata = () => {
   const { todoList } = useContext(TodoContext)
   return (
     <div className='TodoMetadata'>
-      <span>{todoList.length ? todoList.length : 0} todos</span>
+      <span>{todoList.length ? todoList.length : 0} tasks </span>
       <span>
         {todoList.reduce((acc, item) => {
           if (item.completed) return acc
