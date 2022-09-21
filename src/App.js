@@ -8,6 +8,7 @@ import { useContext } from 'react'
 import Modal from 'react-modal'
 import { DeleteModal } from './components/shared/DeleteModal'
 import { EditModal } from './components/shared/EditModal'
+import { Footer } from './components/Footer'
 
 Modal.setAppElement('#root')
 
@@ -30,6 +31,8 @@ export function App() {
         todoItem={selectedItem}
       />
       <EditModal contentLabel={'Details Modal'} />
+
+      <Footer />
     </div>
   )
 }
