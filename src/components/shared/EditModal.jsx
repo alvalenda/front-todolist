@@ -28,7 +28,7 @@ export const EditModal = ({ style, contentLabel }) => {
       shouldCloseOnEsc={false}
     >
       <div className='modal-container'>
-        <h2>Todo Item</h2>
+        <h2>Todo Item {selectedItem.id && selectedItem.id}</h2>
         <div className='text-container'>
           <label>Description</label>
           {!isEditingBtn ? (
