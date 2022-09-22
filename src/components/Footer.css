@@ -15,14 +15,20 @@
   }
 }
 
+@media (max-width: 1390px) {
+  .footer {
+    max-width: 35rem;
+  }
+}
+
 .footer p {
   color: white;
   margin: 0;
 }
 
-/* .footer p:first-of-type {
-  left: calc(0%);
-} */
+.footer p:first-of-type {
+  margin-left: 0.5rem;
+}
 
 .footer p:only-child {
   /* left: calc(100% - 4rem); */
@@ -32,9 +38,15 @@
 
 .footer a {
   text-decoration: none;
+  border-radius: 12px;
 }
 
 .footer span {
   font-weight: 500;
   color: rgb(158, 41, 41);
+}
+
+.footer a:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.4);
 }
