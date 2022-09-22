@@ -1,0 +1,14 @@
+#todoFilter {
+  /* -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none; */
+  outline: none;
+  border: none;
+}
+
+#todoFilter:focus {
+  border: none;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.4);
+}
