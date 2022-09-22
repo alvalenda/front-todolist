@@ -26,7 +26,7 @@ export const TodoProvider = ({ children }) => {
     const newList = [newTodo, ...todoList]
     sortedTodoList(newList)
     setTodoList(() => newList)
-    handleLocalStorage(JSON.stringify(newList))
+    handleLocalStorage(newList)
   }
 
   const deleteTodo = (id) => {
