@@ -30,7 +30,7 @@ export const TodoForm = ({ filter }) => {
 
   const handleTextChange = (e) => {
     const newText = e.target.value
-    setText(() => newText)
+    setText(() => newText.substring(0, 60))
 
     if (newText === '') {
       setBtnDisabled(() => true)
