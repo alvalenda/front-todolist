@@ -44,7 +44,6 @@ div.card {
   height: 2rem;
   width: 6.5rem;
   text-align: center;
-  outline: none;
 }
 
 .message {
@@ -61,13 +60,13 @@ select option:hover {
   background-color: #bd2a2e !important;
 }
 
-::selection {
-  background: rgb(189, 42, 46, 0.8);
-  color: rgb(255, 255, 255);
-}
-
 .card form input:focus {
   border: none;
   outline: none;
   box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+::selection {
+  background: rgb(189, 42, 46, 0.8);
+  color: rgb(255, 255, 255);
 }
