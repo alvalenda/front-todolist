@@ -41,7 +41,7 @@ export const ModalProvider = ({ children }) => {
 
   const handleTextChange = (e) => {
     const newText = e.target.value.trim()
-    setEditText(() => e.target.value)
+    setEditText(() => e.target.value.substring(0, 60))
 
     if (newText === '') {
       setUpdBtnDisable(() => true)
