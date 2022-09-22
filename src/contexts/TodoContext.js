@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from 'react'
 import { sortedTodoList, findFreeId } from '../utils/utils.todo'
-import { todoData } from '../mocks/data'
+// import { todoData } from '../mocks/data'
 
 const TodoContext = createContext()
 
@@ -14,6 +14,8 @@ export const TodoProvider = ({ children }) => {
   }, [])
 
   const fetchTodoList = () => {
+    let todoData = localStorage.getItem('todoList')
+    todoData ? (todoData = JSON.parse(todoData)) : (todoData = [])
     // console.log(todoData)
     sortedTodoList(todoData)
     setTodoList(() => todoData)
@@ -25,6 +27,7 @@ export const TodoProvider = ({ children }) => {
     const newList = [newTodo, ...todoList]
     sortedTodoList(newList)
     setTodoList(() => newList)
+    localStorage.setItem('todoList', JSON.stringify(newList))
   }
 
   const deleteTodo = (id) => {

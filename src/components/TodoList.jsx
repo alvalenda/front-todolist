@@ -3,9 +3,19 @@ import { motionItem, motionExit } from '../utils/utils.motion'
 import { motion, AnimatePresence } from 'framer-motion'
 import TodoContext from '../contexts/TodoContext'
 import { useContext } from 'react'
+import { Card } from './shared/Card'
 
 export const TodoList = () => {
   const { todoList, todoFilter } = useContext(TodoContext)
+
+  if (todoList.length === 0)
+    return (
+      <Card>
+        <span className='zero-todo-msg'>
+          Please enter your first to-do task
+        </span>
+      </Card>
+    )
 
   return (
     <div className='todo-list'>

@@ -53,3 +53,8 @@
 .card.completed .text-display {
   color: rgba(255, 255, 255, 1);
 }
+
+.card span.zero-todo-msg {
+  color: white;
+  font-weight: 300;
+}
