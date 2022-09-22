@@ -96,6 +96,10 @@
   transition: box-shadow 0.3s linear;
 }
 
+.modal-container .edit-modal {
+  transition: all 0.3s linear;
+}
+
 .modal-container .buttons-container .Btn:disabled {
   opacity: 0.9;
   filter: saturate(0.2);
@@ -103,4 +107,14 @@
 
 .modal-container .buttons-container .Btn:disabled:hover {
   box-shadow: none;
+}
+
+.modal-container .edit-modal:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.4);
+}
+
+.modal-container .buttons-container button:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.4);
 }

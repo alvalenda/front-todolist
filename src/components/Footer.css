@@ -38,9 +38,15 @@
 
 .footer a {
   text-decoration: none;
+  border-radius: 12px;
 }
 
 .footer span {
   font-weight: 500;
   color: rgb(158, 41, 41);
+}
+
+.footer a:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.4);
 }

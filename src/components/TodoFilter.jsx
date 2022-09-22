@@ -1,3 +1,4 @@
+import './TodoFilter.css'
 import TodoContext from '../contexts/TodoContext'
 import { useContext } from 'react'
 
