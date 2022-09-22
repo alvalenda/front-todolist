@@ -1,11 +1,11 @@
 .modal-container {
   position: relative;
+  overflow: hidden;
   width: 35rem;
-  height: 24rem;
+  min-height: 24rem;
+  /* max-height: 26rem; */
   margin: 5px;
   padding: 10px 15px 0 12px;
-  /* background-color: rgba(165, 42, 42, 0.9); */
-  /* box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.6); */
   transition: all 1s ease-in-out;
 }
 
@@ -54,6 +54,10 @@
   transition: all 0.5s ease;
 }
 
+.text-container p {
+  max-height: 4rem;
+}
+
 .text-container form input {
   font-family: 'Fira Sans', sans-serif;
   font-weight: 300;
@@ -77,6 +81,7 @@
 }
 
 .modal-container .buttons-container {
+  width: 95%;
   height: 6rem;
   margin: auto auto;
   padding: 0;
