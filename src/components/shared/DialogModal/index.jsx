@@ -1,19 +1,16 @@
-import './DeleteModal.css'
+import './DialogModal.css'
+import ModalContext from '../../../contexts/ModalContext'
+import { useContext } from 'react'
 import Modal from 'react-modal'
 
-export const DeleteModal = ({
-  isOpen,
-  onAfterOpen,
-  onRequestClose,
-  style,
-  contentLabel,
-  handleConfirm,
-  todoItem,
-}) => {
+export const DialogModal = ({ onRequestClose, style, contentLabel }) => {
+  const { isDeleting, handleDeleteModal, handleDeleteConfirm, selectedItem } =
+    useContext(ModalContext)
+
   return (
     <Modal
-      isOpen={isOpen}
-      onRequestClose={onRequestClose}
+      isOpen={isDeleting}
+      onRequestClose={handleDeleteModal}
       style={style}
       contentLabel={contentLabel}
       shouldCloseOnOverlayClick={false}
@@ -21,12 +18,12 @@ export const DeleteModal = ({
     >
       <div className='description'>
         <p>You are about to delete the item:</p>
-        <span>"{todoItem.todo}"</span>
+        <span>"{selectedItem.todo}"</span>
       </div>
       <h2 className='subtitle'> Are You sure? </h2>
       <div className='buttons-container'>
         <button
-          onClick={() => handleConfirm(todoItem.id)}
+          onClick={() => handleDeleteConfirm(selectedItem.id)}
           className={'delete-modal'}
         >
           Yes
@@ -39,7 +36,7 @@ export const DeleteModal = ({
   )
 }
 
-DeleteModal.defaultProps = {
+DialogModal.defaultProps = {
   style: {
     content: {
       top: '50%',
@@ -56,8 +53,5 @@ DeleteModal.defaultProps = {
     overlay: {
       background: 'rgba(0, 0, 0, 0.8)',
     },
-  },
-  todoItem: {
-    todo: 'Todo Item',
   },
 }

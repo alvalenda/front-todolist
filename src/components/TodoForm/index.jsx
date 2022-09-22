@@ -1,8 +1,8 @@
-import { Card } from './shared/Card'
-import { Button } from './shared/Button'
-import { TodoFilter } from './TodoFilter'
+import { Card } from '../shared/Card'
+import { Button } from '../shared/Button'
+import { TodoFilter } from '../TodoFilter'
 import { useState, useContext } from 'react'
-import TodoContext from '../contexts/TodoContext'
+import TodoContext from '../../contexts/TodoContext'
 import './TodoForm.css'
 
 export const TodoForm = ({ filter }) => {
