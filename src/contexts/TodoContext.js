@@ -1,6 +1,5 @@
 import { createContext, useState, useEffect } from 'react'
 import { sortedTodoList, findFreeId } from '../utils/utils.todo'
-// import { todoData } from '../mocks/data'
 
 const TodoContext = createContext()
 
@@ -27,11 +26,13 @@ export const TodoProvider = ({ children }) => {
     const newList = [newTodo, ...todoList]
     sortedTodoList(newList)
     setTodoList(() => newList)
-    localStorage.setItem('todoList', JSON.stringify(newList))
+    handleLocalStorage(JSON.stringify(newList))
   }
 
   const deleteTodo = (id) => {
-    setTodoList(() => todoList.filter((item) => item.id !== id))
+    const newList = todoList.filter((item) => item.id !== id)
+    setTodoList(() => newList)
+    handleLocalStorage(newList)
   }
 
   const updateTodo = (id, updItem) => {
@@ -52,6 +53,11 @@ export const TodoProvider = ({ children }) => {
     // na API precisará fazer PUT
     sortedTodoList(newList)
     setTodoList(() => newList)
+    handleLocalStorage(newList)
+  }
+
+  const handleLocalStorage = (todoList) => {
+    localStorage.setItem('todoList', JSON.stringify(todoList))
   }
 
   const handleTodoFilter = (filter) => {
