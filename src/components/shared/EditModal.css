@@ -1,5 +1,6 @@
 .modal-container {
   position: relative;
+  overflow: hidden;
   width: 35rem;
   height: 24rem;
   margin: 5px;
