@@ -1,9 +1,9 @@
 import './EditModal.css'
 import Modal from 'react-modal'
-import ModalContext from '../../contexts/ModalContext'
+import ModalContext from '../../../contexts/ModalContext'
 import { useContext } from 'react'
 import { MdEditNote, MdClose } from 'react-icons/md'
-import { elapsedTime, printDate } from '../../utils/utils.date'
+import { elapsedTime, printDate } from '../../../utils/utils.date'
 
 export const EditModal = ({ style, contentLabel }) => {
   const {

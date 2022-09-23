@@ -1,5 +1,5 @@
 import './TodoFilter.css'
-import TodoContext from '../contexts/TodoContext'
+import TodoContext from '../../contexts/TodoContext'
 import { useContext } from 'react'
 
 export const TodoFilter = () => {

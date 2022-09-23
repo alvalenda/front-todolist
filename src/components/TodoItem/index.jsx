@@ -1,8 +1,8 @@
-import { Card } from './shared/Card'
+import { Card } from '../shared/Card'
 import { MdDeleteOutline, MdManageSearch } from 'react-icons/md'
 import { useState, useContext } from 'react'
-import TodoContext from '../contexts/TodoContext'
-import ModalContext from '../contexts/ModalContext'
+import TodoContext from '../../contexts/TodoContext'
+import ModalContext from '../../contexts/ModalContext'
 import PropTypes from 'prop-types'
 import './TodoItem.css'
 

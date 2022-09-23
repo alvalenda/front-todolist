@@ -1,9 +1,9 @@
-import { TodoItem } from './TodoItem'
-import { motionItem, motionExit } from '../utils/utils.motion'
+import { TodoItem } from '../TodoItem'
+import { motionItem, motionExit } from '../../utils/utils.motion'
 import { motion, AnimatePresence } from 'framer-motion'
-import TodoContext from '../contexts/TodoContext'
+import TodoContext from '../../contexts/TodoContext'
 import { useContext } from 'react'
-import { Card } from './shared/Card'
+import { Card } from '../shared/Card'
 
 export const TodoList = () => {
   const { todoList, todoFilter } = useContext(TodoContext)
