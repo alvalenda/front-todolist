@@ -28,7 +28,7 @@ export const DialogModal = ({ onRequestClose, style, contentLabel }) => {
         >
           Yes
         </button>
-        <button onClick={onRequestClose} version={'cancel-modal'}>
+        <button onClick={handleDeleteModal} version={'cancel-modal'}>
           Cancel
         </button>
       </div>
