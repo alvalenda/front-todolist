@@ -4,17 +4,26 @@ export class Api {
   static async getAllTodos() {
     const response = await fetch(defaultUrl + '/find-all')
     const allTodos = await response.json()
-
     return allTodos
   }
 
-  static async createTodo(todo) {
+  static async createTodo(newTodo) {
     const response = await fetch(defaultUrl + '/create', {
       method: 'POST',
       headers: new Headers({ 'Content-Type': 'application/json' }),
-      body: JSON.stringify(todo),
+      body: JSON.stringify(newTodo),
     })
-    const newTodo = await response.json()
-    return newTodo
+    const createdTodo = await response.json()
+    return createdTodo
+  }
+
+  static async updateTodo(id, updTodo) {
+    const response = await fetch(defaultUrl + '/update/' + id, {
+      method: 'PUT',
+      headers: new Headers({ 'Content-Type': 'application/json' }),
+      body: JSON.stringify(updTodo),
+    })
+    const updatedTodo = await response.json()
+    return updatedTodo
   }
 }

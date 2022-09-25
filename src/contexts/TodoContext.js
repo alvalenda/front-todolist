@@ -36,6 +36,8 @@ export const TodoProvider = ({ children }) => {
   }
 
   const updateTodo = (id, updItem) => {
+    Api.updateTodo(id, updItem)
+    
     setTodoList(() =>
       todoList.map((item) => (item.id === id ? { ...updItem, id } : item))
     )
