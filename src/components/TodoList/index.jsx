@@ -1,14 +1,17 @@
-import { TodoItem } from '../TodoItem'
-import { motionItem, motionExit } from '../../utils/utils.motion'
-import { motion, AnimatePresence } from 'framer-motion'
 import TodoContext from '../../contexts/TodoContext'
 import { useContext } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { motionItem, motionExit } from '../../utils/utils.motion'
 import { Card } from '../shared/Card'
+import { TodoItem } from '../TodoItem'
+import { LoadingSpinner } from '../shared/LoadingSpinner'
 
 export const TodoList = () => {
-  const { todoList, todoFilter } = useContext(TodoContext)
+  const { todoList, todoFilter, isLoading } = useContext(TodoContext)
 
-  if (todoList.length === 0)
+  if (isLoading) return <LoadingSpinner />
+
+  if (!isLoading && todoList.length === 0)
     return (
       <Card>
         <span className='zero-todo-msg'>
