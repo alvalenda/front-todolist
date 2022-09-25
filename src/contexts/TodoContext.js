@@ -30,9 +30,10 @@ export const TodoProvider = ({ children }) => {
   }
 
   const deleteTodo = (id) => {
+    /* frontend otimista */
+    Api.deleteTodo(id)
     const newList = todoList.filter((item) => item.id !== id)
     setTodoList(() => newList)
-    handleLocalStorage(newList)
   }
 
   const updateTodo = (id, updItem) => {
@@ -60,9 +61,9 @@ export const TodoProvider = ({ children }) => {
     setTodoList(() => newList)
   }
 
-  const handleLocalStorage = (todoList) => {
-    localStorage.setItem('todoList', JSON.stringify(todoList))
-  }
+  // const handleLocalStorage = (todoList) => {
+  //   localStorage.setItem('todoList', JSON.stringify(todoList))
+  // }
 
   const handleTodoFilter = (filter) => {
     setTodoFilter(() => filter)

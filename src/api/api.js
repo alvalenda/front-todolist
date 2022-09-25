@@ -26,4 +26,13 @@ export class Api {
     const updatedTodo = await response.json()
     return updatedTodo
   }
+
+  static async deleteTodo(id) {
+    const response = await fetch(defaultUrl + '/delete/' + id, {
+      method: 'DELETE',
+      headers: new Headers({ 'Content-Type': 'application/json' }),
+    })
+    const deletedTodo = await response.json()
+    return deletedTodo
+  }
 }
