@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from 'react'
 import { sortedTodoList, findFreeId } from '../utils/utils.todo'
-import { api } from '../api/api'
+import { Api } from '../api/api'
 
 const TodoContext = createContext()
 
@@ -13,17 +13,8 @@ export const TodoProvider = ({ children }) => {
     fetchTodoList()
   }, [])
 
-  // const fetchTodoList = () => {
-  //   let todoData = localStorage.getItem('todoList')
-  //   todoData ? (todoData = JSON.parse(todoData)) : (todoData = [])
-  //   // console.log(todoData)
-  //   sortedTodoList(todoData)
-  //   setTodoList(() => todoData)
-  //   setIsLoading(() => false)
-  // }
   const fetchTodoList = async () => {
-    const todoData = await api.getAllTodos()
-
+    const todoData = await Api.getAllTodos()
     sortedTodoList(todoData)
     setTodoList(() => todoData)
     setIsLoading(() => false)
@@ -31,10 +22,11 @@ export const TodoProvider = ({ children }) => {
 
   const addTodo = (newTodo) => {
     newTodo.id = findFreeId(todoList)
+    /* frontend otimista */
+    Api.createTodo(newTodo)
     const newList = [newTodo, ...todoList]
     sortedTodoList(newList)
     setTodoList(() => newList)
-    handleLocalStorage(newList)
   }
 
   const deleteTodo = (id) => {
