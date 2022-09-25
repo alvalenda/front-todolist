@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from 'react'
 import { sortedTodoList, findFreeId } from '../utils/utils.todo'
-import { Api } from '../api/api'
+import { Api } from '../api/Api'
 
 const TodoContext = createContext()
 
@@ -37,11 +37,10 @@ export const TodoProvider = ({ children }) => {
 
   const updateTodo = (id, updItem) => {
     Api.updateTodo(id, updItem)
-    
+    // console.log(id, updItem)
     setTodoList(() =>
       todoList.map((item) => (item.id === id ? { ...updItem, id } : item))
     )
-    // console.log(id, updItem)
   }
 
   const setTodoCompleted = (id, state) => {
@@ -52,10 +51,13 @@ export const TodoProvider = ({ children }) => {
       }
       return item
     })
-    // na API precisará fazer PUT
+    /* frontend otimista */
+    Api.updateTodo(
+      id,
+      newList.find((item) => item.id === id)
+    )
     sortedTodoList(newList)
     setTodoList(() => newList)
-    handleLocalStorage(newList)
   }
 
   const handleLocalStorage = (todoList) => {
