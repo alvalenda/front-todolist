@@ -13,7 +13,15 @@ Vocês terão todos os codelabs para fazer o projeto e implementar ele o melhor 
 
 ## Critérios
 
--[ ] Formatação do código utilizando o Prettier (0,8 pontos); -[ ] Utilização correta dos Hooks (0,8 pontos); -[ ] Utilização do useEffect (0,8 pontos); -[ ] Implementação JSON Server (está com backend) (0,8 pontos); -[ ] Frontend React com os recursos: -[ ] Read All (2 pontos); -[ ] Read By Id (2 pontos); -[ ] Create (2 pontos); -[ ] [BONUS] - Criação e implementação de um modal (Só é válido esse ponto se a rota Create estiver correta) - (0,8 pontos).
+- [ ] Formatação do código utilizando o Prettier (0,8 pontos);
+- [ ] Utilização correta dos Hooks (0,8 pontos);
+- [ ] Utilização do useEffect (0,8 pontos);
+- [ ] Implementação JSON Server (está com backend) (0,8 pontos);
+- [ ] Frontend React com os recursos:
+- [ ] Read All (2 pontos);
+- [ ] Read By Id (2 pontos);
+- [ ] Create (2 pontos);
+- [ ] [BONUS] - Criação e implementação de um modal (Só é válido esse ponto se a rota Create estiver correta) - (0,8 pontos).
 
 ## Available Scripts
 
