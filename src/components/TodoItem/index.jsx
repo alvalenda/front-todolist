@@ -26,7 +26,7 @@ export const TodoItem = ({ item }) => {
         onChange={handleChange}
         checked={todoCheck}
       />
-      <section className='check-icon'>
+      <section className='check-icon' onClick={handleChange}>
         {todoCheck && <MdOutlineCheck size={20} color={'white'} />}
       </section>
       <div className='text-display'>{item.todo}</div>
