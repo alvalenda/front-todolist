@@ -1,5 +1,5 @@
 import { Card } from '../shared/Card'
-import { MdDeleteOutline, MdManageSearch } from 'react-icons/md'
+import { MdDeleteOutline, MdManageSearch, MdOutlineCheck } from 'react-icons/md'
 import { useState, useContext } from 'react'
 import TodoContext from '../../contexts/TodoContext'
 import ModalContext from '../../contexts/ModalContext'
@@ -26,6 +26,9 @@ export const TodoItem = ({ item }) => {
         onChange={handleChange}
         checked={todoCheck}
       />
+      <section className='check-icon'>
+        {todoCheck && <MdOutlineCheck size={20} color={'white'} />}
+      </section>
       <div className='text-display'>{item.todo}</div>
       <button onClick={() => handleDeleteModal(item)} className='close'>
         <MdDeleteOutline size={30} color={'white'} />
