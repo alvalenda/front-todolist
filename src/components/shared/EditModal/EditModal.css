@@ -2,7 +2,7 @@
   position: relative;
   overflow: hidden;
   width: 35rem;
-  min-height: 24rem;
+  min-height: 26rem;
   /* max-height: 26rem; */
   margin: 5px;
   padding: 10px 15px 0 12px;
@@ -81,8 +81,10 @@
 }
 
 .modal-container .buttons-container {
+  position: absolute;
+  top: calc(100% - 8rem);
   width: 95%;
-  height: 6rem;
+  height: 8rem;
   margin: auto auto;
   padding: 0;
 }
