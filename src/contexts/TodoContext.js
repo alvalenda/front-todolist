@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from 'react'
 import { sortedTodoList, findFreeId } from '../utils/utils.todo'
-import { Api } from '../api/Api'
+import { Api } from '../api/api'
 
 const TodoContext = createContext()
 
