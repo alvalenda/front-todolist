@@ -1,6 +1,26 @@
-# Getting Started with Create React App
+# Todo List React App
+
+Production version with beackend: [https://front-todolist.vercel.app/](https://front-todolist.vercel.app/)
+Project using localStorage: [https://alvalenda-todo.netlify.app/](https://alvalenda-todo.netlify.app/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+
+## Projeto To Do List
+Uma To Do List é uma lista de tarefas, onde podemos inserir, remover, marcar como feito ou deletar tarefas do nosso dia a dia.
+Esse será o único projeto entregável de vocês nesse módulo, as entregas serão divididas em duas, uma na TERCEIRA semana do curso e outra na QUINTA semana do curso.
+Vocês terão todos os codelabs para fazer o projeto e implementar ele o melhor possível, mas o nosso foco é no entendimento dos conceitos e nos exercícios práticos passados pelos professores.
+
+## Critérios 
+-[ ] Formatação do código utilizando o Prettier (0,8 pontos);
+-[ ] Utilização correta dos Hooks (0,8 pontos);
+-[ ] Utilização do useEffect (0,8 pontos);
+-[ ] Implementação JSON Server (está com backend) (0,8 pontos);
+-[ ] Frontend React com os recursos:
+    -[ ] Read All (2 pontos);
+    -[ ] Read By Id (2 pontos);
+    -[ ] Create (2 pontos);
+-[ ] [BONUS] - Criação e implementação de um modal (Só é válido esse ponto se a rota Create estiver correta) - (0,8 pontos).
 
 ## Available Scripts
 
