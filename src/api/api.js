@@ -1,4 +1,4 @@
-const defaultUrl = 'http://localhost:3000/todos'
+const defaultUrl = 'https://api-todolist-alvalenda.herokuapp.com/todos'
 
 export class Api {
   static async getAllTodos() {
