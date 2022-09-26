@@ -9,10 +9,10 @@ export const TodoMetadata = () => {
       <span>{todoList.length ? todoList.length : 0} tasks </span>
       <span>
         {todoList.reduce((acc, item) => {
-          if (item.completed) return acc
+          if (!item.completed) return acc
           else return acc + 1
         }, 0)}{' '}
-        incompleted
+        completed
       </span>
     </div>
   )
