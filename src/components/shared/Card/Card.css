@@ -52,8 +52,10 @@
 
 .card.completed .check-icon {
   position: absolute;
+  opacity: 0.6;
   top: 1.8rem;
   left: calc(0% + 1.5rem);
+  cursor: pointer;
 }
 
 .card.reverse {
