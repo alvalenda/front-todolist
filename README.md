@@ -8,6 +8,10 @@ Build alternativa com dados salvos localmente no navegador:
 
 - Alternative `branch` using `localStorage`: [https://alvalenda-todo.netlify.app/](https://alvalenda-todo.netlify.app/)
 
+Documentação do back-end:
+
+- [https://api-todolist-alvalenda.herokuapp.com/api-docs/](https://api-todolist-alvalenda.herokuapp.com/api-docs/)
+
 ## Projeto To Do List
 
 Uma To Do List é uma lista de tarefas, onde podemos inserir, remover, marcar como feito ou deletar tarefas do nosso dia a dia.
