@@ -1,8 +1,8 @@
 # Todo List React App
 
-Projeto a ser avaliado:
+**Projeto a ser avaliado**, utiliza um `back-end` para guardar os dados das tarefas:
 
-- Production `ver.` with `beack-end`: [https://front-todolist.vercel.app/](https://front-todolist.vercel.app/)
+- Production `ver.` using `beack-end`: [https://front-todolist.vercel.app/](https://front-todolist.vercel.app/)
 
 Build alternativa com dados salvos localmente no navegador:
 
