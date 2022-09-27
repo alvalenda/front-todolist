@@ -1,9 +1,8 @@
 # Todo List React App
 
-Production version with beackend: [https://front-todolist.vercel.app/](https://front-todolist.vercel.app/)  
-Project using localStorage: [https://alvalenda-todo.netlify.app/](https://alvalenda-todo.netlify.app/)
+Production ver. with beack-end: [https://front-todolist.vercel.app/](https://front-todolist.vercel.app/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Project branch ver. using localStorage: [https://alvalenda-todo.netlify.app/](https://alvalenda-todo.netlify.app/)
 
 ## Projeto To Do List
 
@@ -89,3 +88,22 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+---
+
+Tecnologias
+
+Front-end:
+
+- - ReactJs
+- - framer-motion
+- - react-icons
+- - react-modal
+
+Back-end:
+
+- - Node.js
+- - express
+- - cors
