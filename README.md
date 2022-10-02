@@ -26,7 +26,7 @@ Vocês terão todos os codelabs para fazer o projeto e implementar ele o melhor 
 - [x] Implementação JSON Server (está com backend) (0,8 pontos)
 - [x] Frontend React com os recursos:
   - [x] Read All (2 pontos)
-  - [ ] Read By Id (2 pontos) [extremamente ineficiente]
+  - [x] Read By Id (2 pontos) [modal com item selecionado sem fazer nova requisição]
   - [x] Create (2 pontos)
   - [x] [BONUS] - Criação e implementação de um modal (Só é válido esse ponto se a rota Create estiver correta) - (0,8 pontos)
 
@@ -67,3 +67,4 @@ Tecnologias:
   - Node.js
   - express
   - cors
+  - swagger
