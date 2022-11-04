@@ -21,7 +21,7 @@ export const ActionMode = () => {
         className={`btn actionBtn ${activedMode === 'EDITING' && 'active'}
         `}
       >
-        EDIDINT
+        EDITINT
       </button>
       <button
         onClick={() => handleActivedMode(actionMode.DELETING)}
