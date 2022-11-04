@@ -1,22 +1,22 @@
 import './EditModal.css'
 import Modal from 'react-modal'
 import ModalContext from '../../../contexts/ModalContext'
+import TodoContext from '../../../contexts/TodoContext'
 import { useContext } from 'react'
-import { MdEditNote, MdClose } from 'react-icons/md'
 import { elapsedTime, printDate } from '../../../utils/utils.date'
 
 export const EditModal = ({ style, contentLabel }) => {
   const {
     isEditing,
-    isEditingBtn,
     editText,
     updBtnDisable,
     handleEditModal,
-    handleEditButton,
     handleUpdate,
     handleTextChange,
     selectedItem,
   } = useContext(ModalContext)
+
+  const { activedMode } = useContext(TodoContext)
 
   return (
     <Modal
@@ -31,7 +31,7 @@ export const EditModal = ({ style, contentLabel }) => {
         <h2>Todo Item {selectedItem.id && selectedItem.id}</h2>
         <div className='text-container'>
           <label>Description</label>
-          {!isEditingBtn ? (
+          {activedMode === 'NORMAL' ? (
             <p className='todo-item'> {selectedItem.todo}</p>
           ) : (
             <form onSubmit={handleUpdate} id='edit-form'>
@@ -65,21 +65,8 @@ export const EditModal = ({ style, contentLabel }) => {
           <span className='duration-item'>{elapsedTime(selectedItem)}</span>
         </div>
 
-        {!isEditingBtn ? (
-          <button
-            type='button'
-            onClick={handleEditButton}
-            className={'edit-modal'}
-          >
-            <MdEditNote size={34} />
-          </button>
-        ) : (
-          <button onClick={handleEditButton} className={'edit-modal'}>
-            <MdClose size={34} />
-          </button>
-        )}
         <div className='buttons-container'>
-          {isEditingBtn && (
+          {activedMode === 'EDITING' && (
             <button
               type={'form'}
               form={'edit-form'}

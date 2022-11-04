@@ -2,14 +2,11 @@
   background-color: transparent;
 }
 
-.card button.edit {
+.card button {
   position: absolute;
-  right: 3.5em;
-}
-
-.card button.close {
-  position: absolute;
-  right: 0.5em;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1.5em;
 }
 
 .card.completed button {

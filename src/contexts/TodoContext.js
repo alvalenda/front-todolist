@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from 'react'
 import { sortedTodoList, findFreeId } from '../utils/utils.todo'
+import { ActionMode } from '../utils/actionmode'
 import { Api } from '../api/api'
 
 const TodoContext = createContext()
@@ -8,6 +9,7 @@ export const TodoProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(() => true)
   const [todoList, setTodoList] = useState(() => [])
   const [todoFilter, setTodoFilter] = useState(() => 'allTodos')
+  const [activedMode, setActivedMode] = useState(() => ActionMode.NORMAL)
 
   useEffect(() => {
     fetchTodoList()
@@ -69,17 +71,23 @@ export const TodoProvider = ({ children }) => {
     setTodoFilter(() => filter)
   }
 
+  const handleActivedMode = (newMode) => {
+    setActivedMode(() => newMode)
+  }
+
   return (
     <TodoContext.Provider
       value={{
         isLoading,
         todoList,
         todoFilter,
+        activedMode,
         addTodo,
         deleteTodo,
         updateTodo,
         setTodoCompleted,
         handleTodoFilter,
+        handleActivedMode,
       }}
     >
       {children}

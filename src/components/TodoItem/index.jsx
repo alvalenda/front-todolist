@@ -1,5 +1,10 @@
 import { Card } from '../shared/Card'
-import { MdDeleteOutline, MdManageSearch, MdOutlineCheck } from 'react-icons/md'
+import {
+  MdDeleteOutline,
+  MdManageSearch,
+  MdOutlineCheck,
+  MdEditNote,
+} from 'react-icons/md'
 import { useState, useContext } from 'react'
 import TodoContext from '../../contexts/TodoContext'
 import ModalContext from '../../contexts/ModalContext'
@@ -8,7 +13,7 @@ import './TodoItem.css'
 
 export const TodoItem = ({ item }) => {
   const [todoCheck, setTodoCheck] = useState(item.completed)
-  const { setTodoCompleted } = useContext(TodoContext)
+  const { activedMode, setTodoCompleted } = useContext(TodoContext)
   const { handleDeleteModal, handleEditModal } = useContext(ModalContext)
 
   const handleChange = () => {
@@ -30,12 +35,24 @@ export const TodoItem = ({ item }) => {
         {todoCheck && <MdOutlineCheck size={20} color={'white'} />}
       </section>
       <div className='text-display'>{item.todo}</div>
-      <button onClick={() => handleDeleteModal(item)} className='close'>
-        <MdDeleteOutline size={30} color={'white'} />
-      </button>
-      <button onClick={() => handleEditModal(item)} className='edit'>
-        <MdManageSearch size={30} color={'white'} />
-      </button>
+
+      {activedMode === 'DELETING' && (
+        <button onClick={() => handleDeleteModal(item)} className='close'>
+          <MdDeleteOutline size={35} color={'white'} />
+        </button>
+      )}
+
+      {activedMode === 'EDITING' && (
+        <button onClick={() => handleEditModal(item)} className='edit'>
+          <MdEditNote size={35} color={'white'} />
+        </button>
+      )}
+
+      {activedMode === 'NORMAL' && (
+        <button onClick={() => handleEditModal(item)} className='edit'>
+          <MdManageSearch size={35} color={'white'} />
+        </button>
+      )}
     </Card>
   )
 }

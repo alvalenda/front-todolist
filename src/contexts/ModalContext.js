@@ -8,15 +8,14 @@ export const ModalProvider = ({ children }) => {
   const { deleteTodo, updateTodo } = useContext(TodoContext)
   const [isDeleting, setIsDeleting] = useState(() => false)
   const [isEditing, setIsEditing] = useState(() => false)
-  const [isEditingBtn, setIsEditingBtn] = useState(() => false)
   const [editText, setEditText] = useState(() => '')
   const [updBtnDisable, setUpdBtnDisable] = useState(() => true)
   const [selectedItem, setSelectedItem] = useState(() => ({ ...emptyTodo }))
 
   useEffect(() => {
-    if (isEditingBtn) setEditText(() => selectedItem.todo)
+    if (isEditing) setEditText(() => selectedItem.todo)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isEditingBtn])
+  }, [isEditing, selectedItem])
 
   const handleDeleteModal = (item = emptyTodo) => {
     setSelectedItem(() => item)
@@ -30,13 +29,11 @@ export const ModalProvider = ({ children }) => {
 
   const handleEditModal = (item = emptyTodo) => {
     setSelectedItem(() => item)
-    setIsEditingBtn(() => false)
     setIsEditing((prevState) => !prevState)
   }
 
   const handleEditButton = () => {
-    if (isEditingBtn) setUpdBtnDisable(() => true)
-    setIsEditingBtn((prevState) => !prevState)
+    setUpdBtnDisable(() => true)
   }
 
   const handleTextChange = (e) => {
@@ -86,14 +83,12 @@ export const ModalProvider = ({ children }) => {
       value={{
         isDeleting,
         isEditing,
-        isEditingBtn,
         editText,
         selectedItem,
         updBtnDisable,
         handleDeleteModal,
         handleDeleteConfirm,
         handleEditModal,
-        handleEditButton,
         handleTextChange,
         handleUpdate,
       }}
